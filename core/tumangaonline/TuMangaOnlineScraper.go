@@ -151,6 +151,17 @@ func GetMangasPopularesSeinen() []models.MangaTMO {
 // GetInfoManga obtiene la informacion de un manga
 func GetInfoManga(url string) models.MangaInfoTMO {
 	c := colly.NewCollector()
+
+	// 🔥 CAMBIO: Simular un navegador real
+	c.OnRequest(func(r *colly.Request) {
+		r.Headers.Set("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36")
+	})
+
+	// 🔥 CAMBIO: Imprimir el HTML que recibe (solo para debug, puedes quitarlo luego)
+	c.OnResponse(func(r *colly.Response) {
+		fmt.Println(string(r.Body))
+	})
+
 	mangaInfo := models.MangaInfoTMO{}
 
 	c.OnHTML("#app > section", func(element *colly.HTMLElement) {
@@ -170,7 +181,6 @@ func GetInfoManga(url string) models.MangaInfoTMO {
 		mangaInfo.Generos = generos
 		var capitulos []models.Capitulo
 
-		//obtener los li que no estan en colapse
 		element.ForEach("#chapters > ul.list-group > li", func(i int, element *colly.HTMLElement) {
 			cap := models.Capitulo{
 				Title:   element.ChildText("h4 > div.row > div > a.btn-collapse"),
@@ -179,7 +189,6 @@ func GetInfoManga(url string) models.MangaInfoTMO {
 			capitulos = append(capitulos, cap)
 		})
 
-		//obtener los li que estan en colapsed
 		element.ForEach("#chapters > ul.list-group > div > li", func(i int, element *colly.HTMLElement) {
 			cap := models.Capitulo{
 				Title:   element.ChildText("h4 > div.row > div > a.btn-collapse"),
@@ -190,6 +199,7 @@ func GetInfoManga(url string) models.MangaInfoTMO {
 
 		mangaInfo.Capitulos = capitulos
 	})
+
 	c.Visit(url)
 	return mangaInfo
 }
