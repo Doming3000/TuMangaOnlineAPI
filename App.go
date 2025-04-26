@@ -1,32 +1,31 @@
 package main
 
 import (
+	"log"
+	"os"
+
 	"github.com/gofiber/fiber/v2"
 	"github.com/julioolivares90/TumangaOnlineApi/controllers"
-	"os"
 )
-
-type ResponsePath struct {
-}
 
 func main() {
 	startServer()
 }
+
 func startServer() {
 	app := fiber.New()
+
 	app.Get("/", func(c *fiber.Ctx) error {
-
-		var paths []string
-
-		paths = append(paths, "/api/v1/manga/populares")
-		paths = append(paths, "/api/v1/manga/populares-josei")
-		paths = append(paths, "/api/v1/manga/populares-seinen")
-		paths = append(paths, "/api/v1/manga/info")
-		paths = append(paths, "/api/v1/manga/library")
-		paths = append(paths, "/api/v1/manga/listas")
-		paths = append(paths, "/api/v1/get-cookies")
-		paths = append(paths, "/api/v1/get-manga")
-
+		paths := []string{
+			"/api/v1/manga/populares",
+			"/api/v1/manga/populares-josei",
+			"/api/v1/manga/populares-seinen",
+			"/api/v1/manga/info",
+			"/api/v1/manga/library",
+			"/api/v1/manga/listas",
+			"/api/v1/get-cookies",
+			"/api/v1/get-manga",
+		}
 		return c.JSON(paths)
 	})
 
@@ -34,24 +33,23 @@ func startServer() {
 	app.Get("/api/v1/manga/populares-josei", controllers.GetMangasPopularesJosei)
 	app.Get("/api/v1/manga/populares-seinen", controllers.GetMangasPopularesSeinen)
 	app.Get("/api/v1/manga/info", controllers.GetInfoManga)
-	//app.Get("/api/v1/manga/paginas", controllers.GetPaginasManga)
-	//app.Get("/api/v1/manga/paginas/info", controllers.GetPaginasInfo)
 	app.Get("/api/v1/manga/library", controllers.GetInfoLibrary)
 	app.Get("/api/v1/manga/listas", controllers.GetListasMangas)
 	app.Get("/api/v1/get-cookies", controllers.GetCookiesFromTMO)
 	app.Get("/api/v1/get-manga", controllers.GetPageFromTMOWithCookie)
 
 	port := getPort()
-	app.Listen(port)
+	addr := "0.0.0.0:" + port
+	log.Printf("Starting server on %s\n", addr)
+	if err := app.Listen(addr); err != nil {
+		log.Fatalf("Error starting server: %v", err)
+	}
 }
 
 func getPort() string {
 	port := os.Getenv("PORT")
 	if port == "" {
-    		port = "5000"
+		port = "5000"
 	}
-	err := app.Listen("0.0.0.0:" + port)
-	if err != nil {
-    		log.Fatal(err)
-	}
+	return port
 }
