@@ -48,7 +48,10 @@ func startServer() {
 func getPort() string {
 	port := os.Getenv("PORT")
 	if port == "" {
-		port = "5000"
+    		port = "5000"
 	}
-	return ":" + port
+	err := app.Listen("0.0.0.0:" + port)
+	if err != nil {
+    		log.Fatal(err)
+	}
 }
