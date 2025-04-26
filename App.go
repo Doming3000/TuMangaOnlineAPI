@@ -23,9 +23,9 @@ func startServer() {
 		paths = append(paths, "/api/v1/manga/populares-seinen")
 		paths = append(paths, "/api/v1/manga/info")
 		paths = append(paths, "/api/v1/manga/library")
-		paths = append(paths, "api/v1/manga/listas")
-		paths = append(paths, "api/v1/get-cookies")
-		paths = append(paths, "api/v1/get-manga")
+		paths = append(paths, "/api/v1/manga/listas")
+		paths = append(paths, "/api/v1/get-cookies")
+		paths = append(paths, "/api/v1/get-manga")
 
 		return c.JSON(paths)
 	})
@@ -37,10 +37,9 @@ func startServer() {
 	//app.Get("/api/v1/manga/paginas", controllers.GetPaginasManga)
 	//app.Get("/api/v1/manga/paginas/info", controllers.GetPaginasInfo)
 	app.Get("/api/v1/manga/library", controllers.GetInfoLibrary)
-	app.Get("api/v1/manga/listas", controllers.GetListasMangas)
-
-	app.Get("api/v1/get-cookies", controllers.GetCookiesFromTMO)
-	app.Get("api/v1/get-manga", controllers.GetPageFromTMOWithCookie)
+	app.Get("/api/v1/manga/listas", controllers.GetListasMangas)
+	app.Get("/api/v1/get-cookies", controllers.GetCookiesFromTMO)
+	app.Get("/api/v1/get-manga", controllers.GetPageFromTMOWithCookie)
 
 	port := getPort()
 	app.Listen(port)
@@ -49,7 +48,7 @@ func startServer() {
 func getPort() string {
 	port := os.Getenv("PORT")
 	if port == "" {
-		port = ":5000"
+		port = "5000"
 	}
-	return port
+	return ":" + port
 }
