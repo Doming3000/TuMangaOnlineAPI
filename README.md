@@ -1,4 +1,7 @@
 # TuMangaOnline-api 
+### **:robot: Original Author**
+
+[_*Julio Olivares*_](https://github.com/julioolivares90)
 
 ## **:package: Principales herramientas usadas**
 
@@ -7,7 +10,7 @@
 
 
 ## :rocket:  tumangaonline-api API enlace
-https://tumangaonline-api.herokuapp.com/
+https://tumangaonlineapi-production.up.railway.app
 
 ### iniciar el servidor usando go
 
@@ -18,7 +21,7 @@ go run App.go
 ### Request & Response Ejemplos de uso
 
 ### obtiene todos los mangas populares
-https://tumangaonline-api.herokuapp.com/api/v1/manga/populares?pageNumber=2
+https://tumangaonlineapi-production.up.railway.app/api/v1/manga/populares
 
 ```json
 {
@@ -268,7 +271,7 @@ https://tumangaonline-api.herokuapp.com/api/v1/manga/populares?pageNumber=2
 }
 ```
 ### obtiene todos los mangas populares seinen 
-https://tumangaonline-api.herokuapp.com/api/v1/manga/populares-seinen
+https://tumangaonlineapi-production.up.railway.app/api/v1/manga/populares-seinen
 ```json
 {
     "statusCode": 200,
@@ -445,7 +448,7 @@ https://tumangaonline-api.herokuapp.com/api/v1/manga/populares-seinen
 }
 ```
 ### obtener la informacion de un manga 
-https://tumangaonline-api.herokuapp.com/api/v1/manga/info?mangaUrl=https://lectortmo.com/library/manga/23741/dr-stone
+https://tumangaonlineapi-production.up.railway.app/api/v1/manga/info?mangaUrl=https://lectortmo.com/library/manga/23741/dr-stone
 ```json
 {
     "statusCode": 200,
@@ -1154,7 +1157,7 @@ https://tumangaonline-api.herokuapp.com/api/v1/manga/info?mangaUrl=https://lecto
 }
 ```
 ### obtener las imagenes de un capitulo de un manga
-https://tumangaonline-api.herokuapp.com/api/v1/get-manga?urlPage=https://lectortmo.com/view_uploads/569910
+https://tumangaonlineapi-production.up.railway.app/api/v1/get-manga?urlPage=https://lectortmo.com/view_uploads/569910
 ```json
 {
     "statusCode": 200,
@@ -1200,7 +1203,7 @@ https://tumangaonline-api.herokuapp.com/api/v1/get-manga?urlPage=https://lectort
 - erotic
 
 ## enlace 
-https://tumangaonline-api.herokuapp.com/api/v1/manga/library?title=naruto
+https://tumangaonlineapi-production.up.railway.app/api/v1/manga/library?title=naruto
 ```json
 {
     "statusCode": 200,
@@ -1344,16 +1347,3 @@ https://tumangaonline-api.herokuapp.com/api/v1/manga/library?title=naruto
     ]
 }
 ```
----
-
-
-
-### **:robot: Author**
-
-_*Julio Olivares*_
-
-> You can follow me on
-[github](https://github.com/julioolivares90)&nbsp;&middot;&nbsp;[twitter](https://twitter.com/JulioOlivares12)
-
----
-
