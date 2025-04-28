@@ -180,6 +180,9 @@ func GetInfoManga(url string) models.MangaInfoTMO {
 		// Obtener capítulos
 		var capitulos []models.Capitulo
 		element.ForEach("#chapters > ul.list-group > li", func(i int, element *colly.HTMLElement) {
+			// Imprimir el HTML completo de cada li para inspeccionar
+			fmt.Println("HTML del capítulo:", element.HTML())
+
 			// Ajustamos el selector para obtener la URL relativa
 			relativeURL := element.ChildAttr("h4 > div.row > div.col > a", "href")
 			// Verificar que la URL relativa no esté vacía
