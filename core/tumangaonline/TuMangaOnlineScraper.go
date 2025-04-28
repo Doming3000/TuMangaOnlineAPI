@@ -187,6 +187,8 @@ func GetInfoManga(url string) models.MangaInfoTMO {
 
 			// Obtener el título del capítulo
 			capituloTitle := element.ChildText("h4 > div.row > div.col > a")
+			// Imprimir valores para depurar
+			fmt.Println("Capítulo:", capituloTitle, "URL:", fullURL)
 
 			// Asegurarse de que los datos no estén vacíos antes de agregarlos
 			if capituloTitle != "" && fullURL != "" {
@@ -195,6 +197,9 @@ func GetInfoManga(url string) models.MangaInfoTMO {
 					UrlLeer: fullURL,
 				}
 				capitulos = append(capitulos, cap)
+			} else {
+				// Si no encontramos datos válidos, imprimimos un mensaje
+				fmt.Println("¡Advertencia! Capítulo vacío o URL inválido")
 			}
 		})
 
