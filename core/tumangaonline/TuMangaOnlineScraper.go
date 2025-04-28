@@ -149,46 +149,49 @@ func GetMangasPopularesSeinen() []models.MangaTMO {
 }
 
 // GetInfoManga obtiene la informacion de un manga
-func GetInfoManga(link string) (utilities.Manga, error) {
+func GetInfoManga(url string) models.MangaInfoTMO {
 	c := colly.NewCollector()
+	mangaInfo := models.MangaInfoTMO{}
 
-	var manga utilities.Manga
-	var genres []string
-	var chapters []utilities.Chapter
+	c.OnHTML("#app > section", func(element *colly.HTMLElement) {
+		mangaInfo.Title = element.ChildText("header > section.element-header-content > div.container.h-100 > div > div.col-12.col-md-9.element-header-content-text > h1")
+		mangaInfo.Image = element.ChildAttr("header > section.element-header-content > div.container.h-100 > div > div.col-12.col-md-3.text-center > div > img", "src")
+		mangaInfo.Tipo = element.ChildText("header > section.element-header-content > div.container.h-100 > div > div.col-12.col-md-3.text-center > h1")
+		mangaInfo.Score = element.ChildText("header > section.element-header-content > div.container.h-100 > div > div.col-12.col-md-3.text-center > div > div.score > a > span")
+		mangaInfo.Demografia = element.ChildText("header > section.element-header-content > div.container > div.row > div.col-12 > div.element-image > div.demography")
+		mangaInfo.Descripcion = element.ChildText("header > section.element-header-content > div.container.h-100 > div > div.col-12.col-md-9.element-header-content-text > p.element-description")
+		mangaInfo.Estado = element.ChildText("header > section.element-header-content > div.container.h-100 > div > div.col-12.col-md-9.element-header-content-text > span.book-status")
 
-	c.OnHTML(".container", func(e *colly.HTMLElement) {
-		manga.Title = e.ChildText(".post-title h1")
-		manga.Synopsis = e.ChildText(".summary__content p")
-		manga.Cover = e.ChildAttr(".summary_image img", "src")
-
-		e.ForEach(".genres-content a", func(_ int, el *colly.HTMLElement) {
-			genres = append(genres, el.Text)
-		})
-		manga.Genres = genres
-
-		e.ForEach(".wp-manga-chapter", func(_ int, el *colly.HTMLElement) {
-			chapterTitle := strings.TrimSpace(el.ChildText("a"))
-			chapterURL := el.ChildAttr("a", "href")
-			chapters = append(chapters, utilities.Chapter{
-				Title: chapterTitle,
-				URL:   chapterURL,
-			})
+		var generos []string
+		element.ForEach("header > section > div.container > div.row > div.col-12 > h6", func(i int, element *colly.HTMLElement) {
+			generos = append(generos, element.Text)
 		})
 
-		// Aquí también recogemos la URL del último capítulo, si quieres
-		if len(chapters) > 0 {
-			manga.LastChapter = chapters[0].Title
-			manga.LastChapterURL = chapters[0].URL
-		}
+		mangaInfo.Generos = generos
+		var capitulos []models.Capitulo
+
+		//obtener los li que no estan en colapse
+		element.ForEach("#chapters > ul.list-group > li", func(i int, element *colly.HTMLElement) {
+			cap := models.Capitulo{
+				Title:   element.ChildText("h4 > div.row > div > a.btn-collapse"),
+				UrlLeer: element.ChildAttr("div > div > ul > li  > div.row > div.col-2 > a", "href"),
+			}
+			capitulos = append(capitulos, cap)
+		})
+
+		//obtener los li que estan en colapsed
+		element.ForEach("#chapters > ul.list-group > div > li", func(i int, element *colly.HTMLElement) {
+			cap := models.Capitulo{
+				Title:   element.ChildText("h4 > div.row > div > a.btn-collapse"),
+				UrlLeer: element.ChildAttr("div > div > ul > li  > div.row > div.col-2 > a", "href"),
+			}
+			capitulos = append(capitulos, cap)
+		})
+
+		mangaInfo.Capitulos = capitulos
 	})
-
-	err := c.Visit(link)
-	if err != nil {
-		return manga, err
-	}
-
-	manga.Chapters = chapters
-	return manga, nil
+	c.Visit(url)
+	return mangaInfo
 }
 
 // getImagenManga obtiene la imagen de fondo de la lista de mangas de la pagina de inicio
