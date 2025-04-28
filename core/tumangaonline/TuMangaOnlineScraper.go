@@ -2,7 +2,6 @@ package tumangaonline
 
 import (
 	"fmt"
-	"strings"
 
 	s "strings"
 
@@ -106,116 +105,92 @@ func GetMangasPopularesSeinen() []models.MangaTMO {
 	/*
 		doc, err := goquery.NewDocumentFromReader(response.Body())
 		if err != nil {
-		log.Fatal(err)
+			log.Fatal(err)
 		}
 
 		var html, err2 = doc.Html()
 		if err2 != nil {
-		log.Fatal(err)
+			log.Fatal(err)
 		}
 
 		fmt.Println(html)
 
 		// Encuentra y extrae los elementos deseados utilizando selectores CSS
 		doc.Find("#app > main > div:nth-child(2) > div.col-12.col-lg-8.col-xl-9 > div:nth-child(1)").Each(func(i int, s *goquery.Selection) {
-		fmt.Println(s.Text())
+			fmt.Println(s.Text())
 		})
 		/*
-		c := colly.NewCollector()
+			c := colly.NewCollector()
 
-		c.OnHTML("#app > main > div:nth-child(2) > div.col-12.col-lg-8.col-xl-9 > div:nth-child(1)", func(element *colly.HTMLElement) {
-		element.ForEach("div.element", func(i int, element *colly.HTMLElement) {
-		dataItentificador := element.Attr("data-identifier")
-		//fmt.Println(dataItentificador)
-		mangaPopular := models.MangaTMO{
-		Title:       element.ChildText("a > div > div > h4"),
-		MangaUrl:    element.ChildAttr("a", "href"),
-		Type:        element.ChildText("a > div > span.book-type"),
-		Demography:  element.ChildText("a > div > span.demography"),
-		Score:       element.ChildText("a > div > span.score > span"),
-		MangaImagen: getImagenManga(element.ChildText("a > div > style"), dataItentificador),
-		}
-		mangasPopulares = append(mangasPopulares, mangaPopular)
+			c.OnHTML("#app > main > div:nth-child(2) > div.col-12.col-lg-8.col-xl-9 > div:nth-child(1)", func(element *colly.HTMLElement) {
+				element.ForEach("div.element", func(i int, element *colly.HTMLElement) {
+					dataItentificador := element.Attr("data-identifier")
+					//fmt.Println(dataItentificador)
+					mangaPopular := models.MangaTMO{
+						Title:       element.ChildText("a > div > div > h4"),
+						MangaUrl:    element.ChildAttr("a", "href"),
+						Type:        element.ChildText("a > div > span.book-type"),
+						Demography:  element.ChildText("a > div > span.demography"),
+						Score:       element.ChildText("a > div > span.score > span"),
+						MangaImagen: getImagenManga(element.ChildText("a > div > style"), dataItentificador),
+					}
+					mangasPopulares = append(mangasPopulares, mangaPopular)
 
-		})
-		})
+				})
+			})
 
-		err := c.Visit(fmt.Sprintf("%s/populars-boys", url))
-		if err != nil {
-		fmt.Printf("Error => %s", err.Error())
-		}
+			err := c.Visit(fmt.Sprintf("%s/populars-boys", url))
+			if err != nil {
+				fmt.Printf("Error => %s", err.Error())
+			}
 
 	*/
 	return mangasPopulares
 }
 
-// GetInfoManga obtiene la información de un manga
+// GetInfoManga obtiene la informacion de un manga
 func GetInfoManga(url string) models.MangaInfoTMO {
-	ctx, cancel := chromedp.NewContext(context.Background())
-	defer cancel()
-
-	var htmlContent string
-	err := chromedp.Run(ctx,
-		chromedp.Navigate(url),
-		chromedp.WaitVisible(`#chapters`, chromedp.ByID),
-		chromedp.OuterHTML("html", &htmlContent, chromedp.ByQuery),
-	)
-	if err != nil {
-		log.Fatal(err)
-	}
-
 	c := colly.NewCollector()
-
-	// Simular navegador real
-	c.OnRequest(func(r *colly.Request) {
-		r.Headers.Set("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36")
-	})
-
 	mangaInfo := models.MangaInfoTMO{}
 
-	c.OnHTML("html", func(e *colly.HTMLElement) {
-		mangaInfo.Title = e.ChildText("header > section.element-header-content > div.container.h-100 > div > div.col-12.col-md-9.element-header-content-text > h1")
-		mangaInfo.Image = e.ChildAttr("header > section.element-header-content > div.container.h-100 > div > div.col-12.col-md-3.text-center > div > img", "src")
-		mangaInfo.Tipo = e.ChildText("header > section.element-header-content > div.container.h-100 > div > div.col-12.col-md-3.text-center > h1")
-		mangaInfo.Score = e.ChildText("header > section.element-header-content > div.container.h-100 > div > div.col-12.col-md-3.text-center > div > div.score > a > span")
-		mangaInfo.Demografia = e.ChildText("header > section.element-header-content > div.container > div.row > div.col-12 > div.element-image > div.demography")
-		mangaInfo.Descripcion = e.ChildText("header > section.element-header-content > div.container.h-100 > div > div.col-12.col-md-9.element-header-content-text > p.element-description")
-		mangaInfo.Estado = e.ChildText("header > section.element-header-content > div.container.h-100 > div > div.col-12.col-md-9.element-header-content-text > span.book-status")
+	c.OnHTML("#app > section", func(element *colly.HTMLElement) {
+		mangaInfo.Title = element.ChildText("header > section.element-header-content > div.container.h-100 > div > div.col-12.col-md-9.element-header-content-text > h1")
+		mangaInfo.Image = element.ChildAttr("header > section.element-header-content > div.container.h-100 > div > div.col-12.col-md-3.text-center > div > img", "src")
+		mangaInfo.Tipo = element.ChildText("header > section.element-header-content > div.container.h-100 > div > div.col-12.col-md-3.text-center > h1")
+		mangaInfo.Score = element.ChildText("header > section.element-header-content > div.container.h-100 > div > div.col-12.col-md-3.text-center > div > div.score > a > span")
+		mangaInfo.Demografia = element.ChildText("header > section.element-header-content > div.container > div.row > div.col-12 > div.element-image > div.demography")
+		mangaInfo.Descripcion = element.ChildText("header > section.element-header-content > div.container.h-100 > div > div.col-12.col-md-9.element-header-content-text > p.element-description")
+		mangaInfo.Estado = element.ChildText("header > section.element-header-content > div.container.h-100 > div > div.col-12.col-md-9.element-header-content-text > span.book-status")
 
-		// 🔥 Generos
 		var generos []string
-		e.ForEach("header > section > div.container > div.row > div.col-12 > h6", func(_ int, el *colly.HTMLElement) {
-			text := strings.TrimSpace(el.Text)
-			if text != "" {
-				generos = append(generos, text)
-			}
+		element.ForEach("header > section > div.container > div.row > div.col-12 > h6", func(i int, element *colly.HTMLElement) {
+			generos = append(generos, element.Text)
 		})
+
 		mangaInfo.Generos = generos
-
-		// 🔥 Capítulos
 		var capitulos []models.Capitulo
-		e.ForEach("#chapters > ul.list-group > li, #chapters > ul.list-group > div > li", func(_ int, el *colly.HTMLElement) {
-			title := el.ChildText("h4 > div.row > div > a.btn-collapse")
-			urlLeer := el.ChildAttr("div > div > ul > li > div.row > div.col-2 > a", "href")
-			if urlLeer != "" {
-				urlLeer = "https://zonatmo.com" + urlLeer
-			}
 
+		//obtener los li que no estan en colapse
+		element.ForEach("#chapters > ul.list-group > li", func(i int, element *colly.HTMLElement) {
 			cap := models.Capitulo{
-				Title:   title,
-				UrlLeer: urlLeer,
+				Title:   element.ChildText("h4 > div.row > div > a.btn-collapse"),
+				UrlLeer: element.ChildAttr("div > div > ul > li  > div.row > div.col-2 > a", "href"),
 			}
 			capitulos = append(capitulos, cap)
 		})
+
+		//obtener los li que estan en colapsed
+		element.ForEach("#chapters > ul.list-group > div > li", func(i int, element *colly.HTMLElement) {
+			cap := models.Capitulo{
+				Title:   element.ChildText("h4 > div.row > div > a.btn-collapse"),
+				UrlLeer: element.ChildAttr("div > div > ul > li  > div.row > div.col-2 > a", "href"),
+			}
+			capitulos = append(capitulos, cap)
+		})
+
 		mangaInfo.Capitulos = capitulos
 	})
-
-	// Procesar el HTML renderizado
-	err = c.UnmarshalHTML([]byte(htmlContent))
-	if err != nil {
-		log.Fatal(err)
-	}
-
+	c.Visit(url)
 	return mangaInfo
 }
 
