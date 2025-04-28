@@ -180,26 +180,31 @@ func GetInfoManga(url string) models.MangaInfoTMO {
 		// Obtener capítulos
 		var capitulos []models.Capitulo
 		element.ForEach("#chapters > ul.list-group > li", func(i int, element *colly.HTMLElement) {
-			// Obtener URL relativa del capítulo
+			// Ajustamos el selector para obtener la URL relativa
 			relativeURL := element.ChildAttr("h4 > div.row > div.col > a", "href")
-			// Formar la URL completa
-			fullURL := fmt.Sprintf("%s%s", baseURL, relativeURL)
+			// Verificar que la URL relativa no esté vacía
+			if relativeURL != "" {
+				// Formar la URL completa
+				fullURL := fmt.Sprintf("%s%s", baseURL, relativeURL)
 
-			// Obtener el título del capítulo
-			capituloTitle := element.ChildText("h4 > div.row > div.col > a")
-			// Imprimir valores para depurar
-			fmt.Println("Capítulo:", capituloTitle, "URL:", fullURL)
+				// Obtener el título del capítulo
+				capituloTitle := element.ChildText("h4 > div.row > div.col > a")
+				// Imprimir valores para depurar
+				fmt.Println("Capítulo:", capituloTitle, "URL:", fullURL)
 
-			// Asegurarse de que los datos no estén vacíos antes de agregarlos
-			if capituloTitle != "" && fullURL != "" {
-				cap := models.Capitulo{
-					Title:   capituloTitle,
-					UrlLeer: fullURL,
+				// Asegurarse de que los datos no estén vacíos antes de agregarlos
+				if capituloTitle != "" && fullURL != "" {
+					cap := models.Capitulo{
+						Title:   capituloTitle,
+						UrlLeer: fullURL,
+					}
+					capitulos = append(capitulos, cap)
+				} else {
+					// Si no encontramos datos válidos, imprimimos un mensaje
+					fmt.Println("¡Advertencia! Capítulo vacío o URL inválido")
 				}
-				capitulos = append(capitulos, cap)
 			} else {
-				// Si no encontramos datos válidos, imprimimos un mensaje
-				fmt.Println("¡Advertencia! Capítulo vacío o URL inválido")
+				fmt.Println("¡Advertencia! No se encontró la URL del capítulo")
 			}
 		})
 
