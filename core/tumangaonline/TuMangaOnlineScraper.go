@@ -148,21 +148,17 @@ func GetMangasPopularesSeinen() []models.MangaTMO {
 	return mangasPopulares
 }
 
-// GetInfoManga obtiene la informacion de un manga
+// GetInfoManga obtiene la informacion de un manga desde ZonaTMO
 func GetInfoManga(url string) models.MangaInfoTMO {
 	c := colly.NewCollector()
 
-	// 🔥 CAMBIO: Simular un navegador real
+	// 🔥 Simular navegador real
 	c.OnRequest(func(r *colly.Request) {
 		r.Headers.Set("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36")
 	})
 
-	// 🔥 CAMBIO: Imprimir el HTML que recibe (solo para debug, puedes quitarlo luego)
-	c.OnResponse(func(r *colly.Response) {
-		fmt.Println(string(r.Body))
-	})
-
 	mangaInfo := models.MangaInfoTMO{}
+	baseURL := "https://zonatmo.com"
 
 	c.OnHTML("#app > section", func(element *colly.HTMLElement) {
 		mangaInfo.Title = element.ChildText("header > section.element-header-content > div.container.h-100 > div > div.col-12.col-md-9.element-header-content-text > h1")
@@ -177,22 +173,15 @@ func GetInfoManga(url string) models.MangaInfoTMO {
 		element.ForEach("header > section > div.container > div.row > div.col-12 > h6", func(i int, element *colly.HTMLElement) {
 			generos = append(generos, element.Text)
 		})
-
 		mangaInfo.Generos = generos
+
 		var capitulos []models.Capitulo
-
 		element.ForEach("#chapters > ul.list-group > li", func(i int, element *colly.HTMLElement) {
+			relativeURL := element.ChildAttr("h4 > div.row > div.col > a", "href")
+			fullURL := fmt.Sprintf("%s%s", baseURL, relativeURL)
 			cap := models.Capitulo{
-				Title:   element.ChildText("h4 > div.row > div > a.btn-collapse"),
-				UrlLeer: element.ChildAttr("div > div > ul > li  > div.row > div.col-2 > a", "href"),
-			}
-			capitulos = append(capitulos, cap)
-		})
-
-		element.ForEach("#chapters > ul.list-group > div > li", func(i int, element *colly.HTMLElement) {
-			cap := models.Capitulo{
-				Title:   element.ChildText("h4 > div.row > div > a.btn-collapse"),
-				UrlLeer: element.ChildAttr("div > div > ul > li  > div.row > div.col-2 > a", "href"),
+				Title:   element.ChildText("h4 > div.row > div.col > a"),
+				UrlLeer: fullURL,
 			}
 			capitulos = append(capitulos, cap)
 		})
