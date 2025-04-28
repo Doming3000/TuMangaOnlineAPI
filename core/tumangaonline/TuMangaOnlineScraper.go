@@ -1,19 +1,16 @@
 package tumangaonline
 
 import (
-	"fmt"
-    	"models" 
-	s "strings"
-
-	"log"
-
-	"context"
-
-	"github.com/chromedp/cdproto/cdp"
-	"github.com/chromedp/chromedp"
-	"github.com/gocolly/colly/v2"
-	"github.com/julioolivares90/TumangaOnlineApi/models"
-	"github.com/julioolivares90/TumangaOnlineApi/utilities"
+    "fmt"
+    s "strings"
+    "models" 
+    "log"
+    "context"
+    "github.com/chromedp/cdproto/cdp"
+    "github.com/chromedp/chromedp"
+    "github.com/gocolly/colly/v2"
+    "github.com/julioolivares90/TumangaOnlineApi/models"
+    "github.com/julioolivares90/TumangaOnlineApi/utilities"
 )
 
 // GetMangasPopulares obtiene los mangas mas populares
