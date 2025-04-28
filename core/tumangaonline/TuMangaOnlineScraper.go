@@ -105,44 +105,44 @@ func GetMangasPopularesSeinen() []models.MangaTMO {
 	/*
 		doc, err := goquery.NewDocumentFromReader(response.Body())
 		if err != nil {
-			log.Fatal(err)
+		log.Fatal(err)
 		}
 
 		var html, err2 = doc.Html()
 		if err2 != nil {
-			log.Fatal(err)
+		log.Fatal(err)
 		}
 
 		fmt.Println(html)
 
 		// Encuentra y extrae los elementos deseados utilizando selectores CSS
 		doc.Find("#app > main > div:nth-child(2) > div.col-12.col-lg-8.col-xl-9 > div:nth-child(1)").Each(func(i int, s *goquery.Selection) {
-			fmt.Println(s.Text())
+		fmt.Println(s.Text())
 		})
 		/*
-			c := colly.NewCollector()
+		c := colly.NewCollector()
 
-			c.OnHTML("#app > main > div:nth-child(2) > div.col-12.col-lg-8.col-xl-9 > div:nth-child(1)", func(element *colly.HTMLElement) {
-				element.ForEach("div.element", func(i int, element *colly.HTMLElement) {
-					dataItentificador := element.Attr("data-identifier")
-					//fmt.Println(dataItentificador)
-					mangaPopular := models.MangaTMO{
-						Title:       element.ChildText("a > div > div > h4"),
-						MangaUrl:    element.ChildAttr("a", "href"),
-						Type:        element.ChildText("a > div > span.book-type"),
-						Demography:  element.ChildText("a > div > span.demography"),
-						Score:       element.ChildText("a > div > span.score > span"),
-						MangaImagen: getImagenManga(element.ChildText("a > div > style"), dataItentificador),
-					}
-					mangasPopulares = append(mangasPopulares, mangaPopular)
+		c.OnHTML("#app > main > div:nth-child(2) > div.col-12.col-lg-8.col-xl-9 > div:nth-child(1)", func(element *colly.HTMLElement) {
+		element.ForEach("div.element", func(i int, element *colly.HTMLElement) {
+		dataItentificador := element.Attr("data-identifier")
+		//fmt.Println(dataItentificador)
+		mangaPopular := models.MangaTMO{
+		Title:       element.ChildText("a > div > div > h4"),
+		MangaUrl:    element.ChildAttr("a", "href"),
+		Type:        element.ChildText("a > div > span.book-type"),
+		Demography:  element.ChildText("a > div > span.demography"),
+		Score:       element.ChildText("a > div > span.score > span"),
+		MangaImagen: getImagenManga(element.ChildText("a > div > style"), dataItentificador),
+		}
+		mangasPopulares = append(mangasPopulares, mangaPopular)
 
-				})
-			})
+		})
+		})
 
-			err := c.Visit(fmt.Sprintf("%s/populars-boys", url))
-			if err != nil {
-				fmt.Printf("Error => %s", err.Error())
-			}
+		err := c.Visit(fmt.Sprintf("%s/populars-boys", url))
+		if err != nil {
+		fmt.Printf("Error => %s", err.Error())
+		}
 
 	*/
 	return mangasPopulares
@@ -168,27 +168,36 @@ func GetInfoManga(url string) models.MangaInfoTMO {
 		})
 
 		mangaInfo.Generos = generos
+
 		var capitulos []models.Capitulo
-
-		//obtener los li que no estan en colapse
-		element.ForEach("#chapters > ul.list-group > li", func(i int, element *colly.HTMLElement) {
-			cap := models.Capitulo{
-				Title:   element.ChildText("h4 > div.row > div > a.btn-collapse"),
-				UrlLeer: element.ChildAttr("div > div > ul > li  > div.row > div.col-2 > a", "href"),
+		element.ForEach("#chapters > ul.list-group > li", func(_ int, e *colly.HTMLElement) {
+			// Obtener el titulo del capitulo
+			title := e.ChildText("h4 > div.row > div.col > a.btn-collapse")
+			if title == "" {
+				return
 			}
-			capitulos = append(capitulos, cap)
-		})
 
-		//obtener los li que estan en colapsed
-		element.ForEach("#chapters > ul.list-group > div > li", func(i int, element *colly.HTMLElement) {
-			cap := models.Capitulo{
-				Title:   element.ChildText("h4 > div.row > div > a.btn-collapse"),
-				UrlLeer: element.ChildAttr("div > div > ul > li  > div.row > div.col-2 > a", "href"),
+			// Buscar el <a> que contiene "/viewer/" y termina en "/paginated"
+			rel := e.ChildAttr("a[href^='/viewer/'][href$='/paginated']", "href")
+			if rel == "" {
+				return
 			}
-			capitulos = append(capitulos, cap)
-		})
 
+			// Formar la URL completa
+			fullURL := rel
+			if s.HasPrefix(rel, "/") {
+				baseURL := ""
+				fullURL = baseURL + rel
+			}
+
+			// 4) Lo agregamos al slice
+			capitulos = append(capitulos, models.Capitulo{
+				Title:   title,
+				UrlLeer: fullURL,
+			})
+		})
 		mangaInfo.Capitulos = capitulos
+
 	})
 	c.Visit(url)
 	return mangaInfo
