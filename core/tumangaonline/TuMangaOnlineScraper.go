@@ -152,15 +152,16 @@ func GetMangasPopularesSeinen() []models.MangaTMO {
 func GetInfoManga(url string) models.MangaInfoTMO {
 	c := colly.NewCollector()
 
-	// 🔥 Simular navegador real
+	// Simular navegador real
 	c.OnRequest(func(r *colly.Request) {
 		r.Headers.Set("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36")
 	})
 
 	mangaInfo := models.MangaInfoTMO{}
-	baseURL := "https://zonatmo.com"
+	baseURL := "https://zonatmo.com" // Asegúrate de que la URL base sea la correcta
 
 	c.OnHTML("#app > section", func(element *colly.HTMLElement) {
+		// Información general del manga
 		mangaInfo.Title = element.ChildText("header > section.element-header-content > div.container.h-100 > div > div.col-12.col-md-9.element-header-content-text > h1")
 		mangaInfo.Image = element.ChildAttr("header > section.element-header-content > div.container.h-100 > div > div.col-12.col-md-3.text-center > div > img", "src")
 		mangaInfo.Tipo = element.ChildText("header > section.element-header-content > div.container.h-100 > div > div.col-12.col-md-3.text-center > h1")
@@ -169,27 +170,42 @@ func GetInfoManga(url string) models.MangaInfoTMO {
 		mangaInfo.Descripcion = element.ChildText("header > section.element-header-content > div.container.h-100 > div > div.col-12.col-md-9.element-header-content-text > p.element-description")
 		mangaInfo.Estado = element.ChildText("header > section.element-header-content > div.container.h-100 > div > div.col-12.col-md-9.element-header-content-text > span.book-status")
 
+		// Obtener géneros
 		var generos []string
 		element.ForEach("header > section > div.container > div.row > div.col-12 > h6", func(i int, element *colly.HTMLElement) {
 			generos = append(generos, element.Text)
 		})
 		mangaInfo.Generos = generos
 
+		// Obtener capítulos
 		var capitulos []models.Capitulo
 		element.ForEach("#chapters > ul.list-group > li", func(i int, element *colly.HTMLElement) {
+			// Obtener URL relativa del capítulo
 			relativeURL := element.ChildAttr("h4 > div.row > div.col > a", "href")
+			// Formar la URL completa
 			fullURL := fmt.Sprintf("%s%s", baseURL, relativeURL)
-			cap := models.Capitulo{
-				Title:   element.ChildText("h4 > div.row > div.col > a"),
-				UrlLeer: fullURL,
+
+			// Obtener el título del capítulo
+			capituloTitle := element.ChildText("h4 > div.row > div.col > a")
+
+			// Asegurarse de que los datos no estén vacíos antes de agregarlos
+			if capituloTitle != "" && fullURL != "" {
+				cap := models.Capitulo{
+					Title:   capituloTitle,
+					UrlLeer: fullURL,
+				}
+				capitulos = append(capitulos, cap)
 			}
-			capitulos = append(capitulos, cap)
 		})
 
+		// Asignar los capítulos a la respuesta
 		mangaInfo.Capitulos = capitulos
 	})
 
+	// Realizar la visita a la página del manga
 	c.Visit(url)
+
+	// Retornar la información del manga
 	return mangaInfo
 }
 
