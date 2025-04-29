@@ -1,7 +1,11 @@
 # TuMangaOnline-api 
-### **:robot: Original Author**
-
+### **:robot: Autor original**
 [_*Julio Olivares*_](https://github.com/julioolivares90)
+
+## **:clipboard: Por hacer / ToDo**
+- Arreglar la búsqueda
+- Arreglar la obtención de imágenes de un manga
+- Arreglar los enlaces a los capitulos al obtener la información de un manga
 
 ## **:package: Principales herramientas usadas**
 
