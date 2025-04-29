@@ -1,4 +1,4 @@
-# TuMangaOnline-api 
+# TuMangaOnlineAPI
 ### **:robot: Autor original**
 [_*Julio Olivares*_](https://github.com/julioolivares90)
 
@@ -13,270 +13,278 @@
 - [x] fiber
 - [x] go colly
 
-
-## :rocket:  tumangaonline-api API enlace
+## :rocket: TuMangaOnlineAPI API enlace:
 https://tumangaonlineapi-production.up.railway.app
 
-### iniciar el servidor usando go
+### Iniciar el servidor usando go:
 
 ```
 go run App.go
 ```
 
-### Request & Response Ejemplos de uso
+### Request & Response Ejemplos de uso:
 
-### obtiene todos los mangas populares
+## 🗞️ Obtener todos los mangas populares:
 https://tumangaonlineapi-production.up.railway.app/api/v1/manga/populares
+
+<details>
+<summary>Desplegar contenido JSON del ejemplo</summary>
 
 ```json
 {
-    "statusCode": 200,
-    "data": [
-        {
-            "title": "Nishuume Cheat no Tensei Madoushi 〜Saikyou ga 1000-nengo ni Tensei",
-            "score": "0.00",
-            "type": "MANGA",
-            "demography": "Shounen",
-            "mangaUrl": "https://lectortmo.com/library/manga/53154/nishuume-cheat-no-tensei-madoushi-saikyou-ga-1000-nengo-ni-tensei",
-            "mangaImagen": "https://otakuteca.com/images/books/cover/5f5377efbcf2a.jpg"
-        },
-        {
-            "title": "Koibito wo Netorare, Yuusha Party kara Tsuihou saretakedo, EX Skill [Kotei Dameiji] ni Mezamete Muteki no Sonzai ni. Saa, Fukushuu wo Hajimeyou.",
-            "score": "0.00",
-            "type": "MANGA",
-            "demography": "Seinen",
-            "mangaUrl": "https://lectortmo.com/library/manga/52729/me-robaron-a-mi-novia-y-me-expulsaron-del-equipo-del-heroe-pero-desperte-la-habilidad-unica-dano-anulado-y-me-volvi-invencible-es-hora-de-conseguir-mi-venganza",
-            "mangaImagen": "https://otakuteca.com/images/books/cover/5f3f6eb227f85.jpg"
-        },
-        {
-            "title": "Shijou Saikyou Orc-san no Tanoshii Tanetsuke Harem Zukuri",
-            "score": "8.06",
-            "type": "MANGA",
-            "demography": "Shounen",
-            "mangaUrl": "https://lectortmo.com/library/manga/46258/shijou-saikyou-orc-san-no-tanoshii-tanetsuke-harem-zukuri",
-            "mangaImagen": "https://otakuteca.com/images/books/cover/5d8ef12e50424.jpg"
-        },
-        {
-            "title": "Dr. Stone",
-            "score": "8.65",
-            "type": "MANGA",
-            "demography": "Shounen",
-            "mangaUrl": "https://lectortmo.com/library/manga/23741/dr-stone",
-            "mangaImagen": "https://otakuteca.com/images/books/cover/5d924d4309b18.jpg"
-        },
-        {
-            "title": "Isekai de Slow Life wo (Ganbou)",
-            "score": "10.00",
-            "type": "MANGA",
-            "demography": "Shounen",
-            "mangaUrl": "https://lectortmo.com/library/manga/47452/isekai-de-slow-life-wo-ganbou",
-            "mangaImagen": "https://otakuteca.com/images/books/cover/5e03c83021f8c.jpg"
-        },
-        {
-            "title": "CUANDO LA CHICA MALVADA AMA",
-            "score": "9.25",
-            "type": "MANHWA",
-            "demography": "Shoujo",
-            "mangaUrl": "https://lectortmo.com/library/manhwa/53373/cuando-la-chica-malvada-ama",
-            "mangaImagen": "https://otakuteca.com/images/books/cover/5f5fb88a121f1.jpg"
-        },
-        {
-            "title": "The monster duchess and contract princess",
-            "score": "9.69",
-            "type": "MANHWA",
-            "demography": "Shoujo",
-            "mangaUrl": "https://lectortmo.com/library/manhwa/44038/la-duquesa-monstruosa-y-la-princesa-del-contrato",
-            "mangaImagen": "https://otakuteca.com/images/books/cover/5dbe02e90f5f0.jpg"
-        },
-        {
-            "title": "Henkyou Gurashi no Maou, Tensei shite Saikyou no Majutsushi ni naru",
-            "score": "9.00",
-            "type": "MANGA",
-            "demography": "Shounen",
-            "mangaUrl": "https://lectortmo.com/library/manga/52914/henkyou-gurashi-no-maou-tensei-shite-saikyou-no-majutsushi-ni-naru",
-            "mangaImagen": "https://otakuteca.com/images/books/cover/5f493e4733287.jpg"
-        },
-        {
-            "title": "Genjitsushugisha no Oukokukaizouki",
-            "score": "8.38",
-            "type": "MANGA",
-            "demography": "Shounen",
-            "mangaUrl": "https://lectortmo.com/library/manga/28684/Genjitsushugisha-no-Oukok",
-            "mangaImagen": "https://otakuteca.com/images/books/cover/5d03083bc484e.jpg"
-        },
-        {
-            "title": "Doctor Elise",
-            "score": "8.91",
-            "type": "MANHWA",
-            "demography": "Shoujo",
-            "mangaUrl": "https://lectortmo.com/library/manhwa/42389/doctora-elise",
-            "mangaImagen": "https://otakuteca.com/images/books/cover/5c606fabbaac4.jpg"
-        },
-        {
-            "title": "Sobreviviendo Ante El Héroe",
-            "score": "9.67",
-            "type": "MANHWA",
-            "demography": "Shoujo",
-            "mangaUrl": "https://lectortmo.com/library/manhwa/42407/sobreviviendo-como-la-esposa-del-heroe",
-            "mangaImagen": "https://otakuteca.com/images/books/cover/5c3fcb1c0919c.jpg"
-        },
-        {
-            "title": "Ankoku Kishi no Ore desu Ga Saikyou no Seikishi wo Mezashimasu",
-            "score": "10.00",
-            "type": "MANGA",
-            "demography": "Shounen",
-            "mangaUrl": "https://lectortmo.com/library/manga/51126/ankoku-kishi-no-ore-desu-ga-saikyou-no-seikishi-wo-mezashimasu",
-            "mangaImagen": "https://otakuteca.com/images/books/cover/5eefdccf8042f.jpg"
-        },
-        {
-            "title": "Rebirth After 80.000 Years Passed",
-            "score": "8.25",
-            "type": "MANHUA",
-            "demography": "Shounen",
-            "mangaUrl": "https://lectortmo.com/library/manhua/47011/rebirth-after-80000-years-passed",
-            "mangaImagen": "https://otakuteca.com/images/books/cover/5ddad4d7b0eb2.jpg"
-        },
-        {
-            "title": "Higyaku Danshi Fujisaki-kun",
-            "score": "0.00",
-            "type": "MANGA",
-            "demography": "Shounen",
-            "mangaUrl": "https://lectortmo.com/library/manga/54103/higyaku-danshi-fujisaki-kun",
-            "mangaImagen": "https://otakuteca.com/images/books/cover/5f82b5cbacc60.jpg"
-        },
-        {
-            "title": "DUNGEON KURASHI NO MOTO YUUSHA",
-            "score": "0.00",
-            "type": "MANGA",
-            "demography": "Seinen",
-            "mangaUrl": "https://lectortmo.com/library/manga/40904/dungeon-kurashi-no-moto-yuusha",
-            "mangaImagen": "https://otakuteca.com/images/books/cover/5ebb067d9f7e8.jpg"
-        },
-        {
-            "title": "Isekai Seikatsu No Susume",
-            "score": "10.00",
-            "type": "MANGA",
-            "demography": "Seinen",
-            "mangaUrl": "https://lectortmo.com/library/manga/49886/isekai-seikatsu-no-susume",
-            "mangaImagen": "https://otakuteca.com/images/books/cover/5f558280540b2.jpg"
-        },
-        {
-            "title": "El Jugador",
-            "score": "7.58",
-            "type": "MANHWA",
-            "demography": "Shounen",
-            "mangaUrl": "https://lectortmo.com/library/manhwa/55/el-jugador",
-            "mangaImagen": "https://otakuteca.com/images/books/cover/5f20d3e481d70.jpg"
-        },
-        {
-            "title": "Martial Peak",
-            "score": "9.44",
-            "type": "MANHUA",
-            "demography": "Seinen",
-            "mangaUrl": "https://lectortmo.com/library/manhua/38921/martial-peak",
-            "mangaImagen": "https://otakuteca.com/images/books/cover/5eaf975a5fc80.jpg"
-        },
-        {
-            "title": "Kagami No Mukou No Saihate Toshokan: Kou No Yuusha To Itsuwari No Maou",
-            "score": "8.00",
-            "type": "MANGA",
-            "demography": "Shounen",
-            "mangaUrl": "https://lectortmo.com/library/manga/45568/kagami-no-mukou-no-saihate-toshokan-kou-no-yuusha-to-itsuwari-no-maou",
-            "mangaImagen": "https://otakuteca.com/images/books/cover/5e349e054f4f2.jpg"
-        },
-        {
-            "title": "Overgeared",
-            "score": "8.00",
-            "type": "MANHWA",
-            "demography": "Shounen",
-            "mangaUrl": "https://lectortmo.com/library/manhwa/48986/overgeared",
-            "mangaImagen": "https://otakuteca.com/images/books/cover/5e83a1879ce82.jpg"
-        },
-        {
-            "title": "Bocchi Tenseiki",
-            "score": "0.00",
-            "type": "MANGA",
-            "demography": "Seinen",
-            "mangaUrl": "https://lectortmo.com/library/manga/52981/bocchi-tenseiki",
-            "mangaImagen": "https://otakuteca.com/images/books/cover/5f4c6c982d03a.jpg"
-        },
-        {
-            "title": "Mi papá es demasiado fuerte",
-            "score": "10.00",
-            "type": "MANHWA",
-            "demography": "Seinen",
-            "mangaUrl": "https://lectortmo.com/library/manhwa/52126/mi-papa-es-demasiado-fuerte",
-            "mangaImagen": "https://otakuteca.com/images/books/cover/5f348e21f0e45.jpg"
-        },
-        {
-            "title": "Kimi wa Meido-sama",
-            "score": "0.00",
-            "type": "MANGA",
-            "demography": "Shounen",
-            "mangaUrl": "https://lectortmo.com/library/manga/52295/kimi-wa-meido-sama",
-            "mangaImagen": "https://otakuteca.com/images/books/cover/5f2b00abb3d05.jpg"
-        },
-        {
-            "title": "Karakai Jouzu no (Moto) Takagi-san",
-            "score": "9.20",
-            "type": "MANGA",
-            "demography": "Shounen",
-            "mangaUrl": "https://lectortmo.com/library/manga/29136/karakai-jouzu-no-moto-takagi-san",
-            "mangaImagen": "https://otakuteca.com/images/books/cover/5c7b0450287b7.jpg"
-        },
-        {
-            "title": "LA LEY DEL INSO",
-            "score": "9.67",
-            "type": "MANHWA",
-            "demography": "Shoujo",
-            "mangaUrl": "https://lectortmo.com/library/manhwa/44379/la-ley-del-inso",
-            "mangaImagen": "https://otakuteca.com/images/books/cover/5ef924062a837.jpg"
-        },
-        {
-            "title": "The Rise of the Unemployed Wise Man",
-            "score": "0.00",
-            "type": "MANGA",
-            "demography": "Shounen",
-            "mangaUrl": "https://lectortmo.com/library/manga/51223/the-rise-of-the-unemployed-wise-man",
-            "mangaImagen": "https://otakuteca.com/images/books/cover/5f498cbfcd20c.jpg"
-        },
-        {
-            "title": "Elf-san wa Yaserarenai",
-            "score": "8.00",
-            "type": "MANGA",
-            "demography": "Seinen",
-            "mangaUrl": "https://lectortmo.com/library/manga/22161/elf-san-wa-yaserarenai",
-            "mangaImagen": "https://otakuteca.com/images/books/cover/5b2f4ef557bc8.jpg"
-        },
-        {
-            "title": "Yuujin Character wa Taihen desu ka?",
-            "score": "0.00",
-            "type": "MANGA",
-            "demography": "Shounen",
-            "mangaUrl": "https://lectortmo.com/library/manga/47122/yuujin-character-wa-taihen-desu-ka",
-            "mangaImagen": "https://otakuteca.com/images/books/cover/5de4bd13bd696.jpg"
-        },
-        {
-            "title": "LA AMANTE DEL CABALLERO DRAGÓN",
-            "score": "0.00",
-            "type": "MANGA",
-            "demography": "Shoujo",
-            "mangaUrl": "https://lectortmo.com/library/manga/45851/la-amante-del-caballero-dragon",
-            "mangaImagen": "https://otakuteca.com/images/books/cover/5d6a02ff84c43.jpg"
-        },
-        {
-            "title": "Kanojo, Hitomishirimasu",
-            "score": "10.00",
-            "type": "MANGA",
-            "demography": "Shounen",
-            "mangaUrl": "https://lectortmo.com/library/manga/51098/kanojo-hitomishirimasu",
-            "mangaImagen": "https://otakuteca.com/images/books/cover/5eee852476a68.jpg"
-        }
-    ]
+  "statusCode": 200,
+  "data": [
+    {
+      "title": "Tensei Shitara Slime Datta Ken",
+      "score": "9.20",
+      "type": "MANGA",
+      "demography": "Shounen",
+      "mangaUrl": "https://zonatmo.com/library/manga/12223/tenseishitaraslimedattaken",
+      "mangaImagen": "https://otakuteca.com/images/books/cover/64cb883e56d87.webp"
+    },
+    {
+      "title": "Chainsaw Man",
+      "score": "8.81",
+      "type": "MANGA",
+      "demography": "Shounen",
+      "mangaUrl": "https://zonatmo.com/library/manga/336/chainsawman",
+      "mangaImagen": "https://otakuteca.com/images/books/cover/648944edc1e26.webp"
+    },
+    {
+      "title": "Goblin Slayer",
+      "score": "8.15",
+      "type": "MANGA",
+      "demography": "Seinen",
+      "mangaUrl": "https://zonatmo.com/library/manga/16354/goblinslayer",
+      "mangaImagen": "https://otakuteca.com/images/books/cover/65ec500805f64.webp"
+    },
+    {
+      "title": "Mago Infinito",
+      "score": "9.06",
+      "type": "MANHWA",
+      "demography": "Shounen",
+      "mangaUrl": "https://zonatmo.com/library/manhwa/74407/elmagoinfinito",
+      "mangaImagen": "https://otakuteca.com/images/books/cover/6655e1f55aba4.webp"
+    },
+    {
+      "title": "Probablemente tambien va tras mi hermano",
+      "score": "0.00",
+      "type": "MANGA",
+      "demography": "Shoujo",
+      "mangaUrl": "https://zonatmo.com/library/manga/88751/osorakukanojowaorenoanikiwoneratteru",
+      "mangaImagen": "https://otakuteca.com/images/books/cover/680fbb9ce3117.webp"
+    },
+    {
+      "title": "Hataraku Maou-sama!",
+      "score": "8.25",
+      "type": "MANGA",
+      "demography": "Shounen",
+      "mangaUrl": "https://zonatmo.com/library/manga/8657/hatarakumaousama",
+      "mangaImagen": "https://otakuteca.com/images/books/cover/5eb35538d6b7d.webp"
+    },
+    {
+      "title": "Mimi, una chica completamente normal",
+      "score": "0.00",
+      "type": "MANGA",
+      "demography": "Seinen",
+      "mangaUrl": "https://zonatmo.com/library/manga/88748/mimiunachicacompletamentenormal",
+      "mangaImagen": "https://otakuteca.com/images/books/cover/680f5941c293f.webp"
+    },
+    {
+      "title": "Dandadan",
+      "score": "9.20",
+      "type": "MANGA",
+      "demography": "Shounen",
+      "mangaUrl": "https://zonatmo.com/library/manga/2005/dandadan",
+      "mangaImagen": "https://otakuteca.com/images/books/cover/614cdc1808414.webp"
+    },
+    {
+      "title": "Isekai Craft Gurashi: Jiyu Kimama na Seisan Shoku no Honobono Slow Life",
+      "score": "10.00",
+      "type": "MANGA",
+      "demography": "Seinen",
+      "mangaUrl": "https://zonatmo.com/library/manga/68554/isekai-craft-gurashi-jiyu-kimama-na-seisan-shoku-no-honobono-slow-life",
+      "mangaImagen": "https://otakuteca.com/images/books/cover/6798e7957281b.webp"
+    },
+    {
+      "title": "Regresión del bastardo del clan de la espada",
+      "score": "6.00",
+      "type": "MANHWA",
+      "demography": "Seinen",
+      "mangaUrl": "https://zonatmo.com/library/manhwa/86436/regressingasthereincarnatedbastardoftheswordclan",
+      "mangaImagen": "https://otakuteca.com/images/books/cover/6717d5513d2bf.webp"
+    },
+    {
+      "title": "Isekai Maou no Successor",
+      "score": "7.00",
+      "type": "MANGA",
+      "demography": "Seinen",
+      "mangaUrl": "https://zonatmo.com/library/manga/55813/isekai-maou-no-successor",
+      "mangaImagen": "https://otakuteca.com/images/books/cover/66d139e5b84b6.webp"
+    },
+    {
+      "title": "Alguien ha poseído mi cuerpo",
+      "score": "8.00",
+      "type": "MANHWA",
+      "demography": "Shoujo",
+      "mangaUrl": "https://zonatmo.com/library/manhwa/77595/alguien-ha-poseido-mi-cuerpo",
+      "mangaImagen": "https://otakuteca.com/images/books/cover/647772e7973d0.webp"
+    },
+    {
+      "title": "Shiunji-ke no Kodomotachi",
+      "score": "7.88",
+      "type": "MANGA",
+      "demography": "Shounen",
+      "mangaUrl": "https://zonatmo.com/library/manga/67271/shiunjikenokodomotachi",
+      "mangaImagen": "https://otakuteca.com/images/books/cover/67d0d1fc22229.webp"
+    },
+    {
+      "title": "La regresión 100 del jugador de nivel máximo",
+      "score": "10.00",
+      "type": "MANHWA",
+      "demography": "Shounen",
+      "mangaUrl": "https://zonatmo.com/library/manhwa/80382/the100thregressionofthemaxlevelplayer",
+      "mangaImagen": "https://otakuteca.com/images/books/cover/6795926d34b45.webp"
+    },
+    {
+      "title": "Mí Nueva Novia no es Humana?",
+      "score": "9.50",
+      "type": "MANGA",
+      "demography": "Shounen",
+      "mangaUrl": "https://zonatmo.com/library/manga/87017/minuevanovianoeshumana",
+      "mangaImagen": "https://otakuteca.com/images/books/cover/67e698739676d.webp"
+    },
+    {
+      "title": "El amor de Nanase es anormal",
+      "score": "10.00",
+      "type": "MANGA",
+      "demography": "Seinen",
+      "mangaUrl": "https://zonatmo.com/library/manga/86293/nanasesannokoigaijou",
+      "mangaImagen": "https://otakuteca.com/images/books/cover/670718c2f228c.webp"
+    },
+    {
+      "title": "Megane, Tokidoki, Yankee-kun",
+      "score": "9.25",
+      "type": "MANGA",
+      "demography": "Shoujo",
+      "mangaUrl": "https://zonatmo.com/library/manga/56564/megane-tokidoki-yankee-kun",
+      "mangaImagen": "https://otakuteca.com/images/books/cover/67b7540e7fe69.webp"
+    },
+    {
+      "title": "El Apocalipsis Ya Está Aquí",
+      "score": "0.00",
+      "type": "MANHWA",
+      "demography": "Seinen",
+      "mangaUrl": "https://zonatmo.com/library/manhwa/88604/theapocalypseishere",
+      "mangaImagen": "https://otakuteca.com/images/books/cover/68017a892de3c.webp"
+    },
+    {
+      "title": "Kage no Jitsuryokusha ni Naritakute! - crónica de las 7 sombras",
+      "score": "10.00",
+      "type": "MANGA",
+      "demography": "Shounen",
+      "mangaUrl": "https://zonatmo.com/library/manga/84143/kagenojitsuryokushaninaritakutemasterofgardenshichikageretsuden",
+      "mangaImagen": "https://otakuteca.com/images/books/cover/672f6059e045b.webp"
+    },
+    {
+      "title": "Me convertí en el genio bastardo de un noble clan oscuro",
+      "score": "0.00",
+      "type": "MANHWA",
+      "demography": "Shounen",
+      "mangaUrl": "https://zonatmo.com/library/manhwa/88416/ibecamethebastardgeniusofanobledarkclan",
+      "mangaImagen": "https://otakuteca.com/images/books/cover/67ec71a55f2bd.webp"
+    },
+    {
+      "title": "Multiverse no Watashi, Koishite Ii desu ka?",
+      "score": "9.00",
+      "type": "MANGA",
+      "demography": "Shounen",
+      "mangaUrl": "https://zonatmo.com/library/manga/85093/multiversenowatashikoishiteiidesuka",
+      "mangaImagen": "https://otakuteca.com/images/books/cover/67a5f99c144e3.webp"
+    },
+    {
+      "title": "Gorin no Megami-sama",
+      "score": "9.50",
+      "type": "MANGA",
+      "demography": "Shounen",
+      "mangaUrl": "https://zonatmo.com/library/manga/64060/gorin-no-megami-sama",
+      "mangaImagen": "https://otakuteca.com/images/books/cover/6292e89658167.webp"
+    },
+    {
+      "title": "A solas en la habitación de una hermosa chica en pijama",
+      "score": "0.00",
+      "type": "MANGA",
+      "demography": "Shounen",
+      "mangaUrl": "https://zonatmo.com/library/manga/87550/muboubikawaiipajamasugatanobishoujotoheyadefutarikiri",
+      "mangaImagen": "https://otakuteca.com/images/books/cover/6788aae16d55d.webp"
+    },
+    {
+      "title": "Me convertí en la sirvienta del Tirano.",
+      "score": "9.00",
+      "type": "MANHWA",
+      "demography": "Shoujo",
+      "mangaUrl": "https://zonatmo.com/library/manhwa/84518/meconvertienlasirvientadeltirano",
+      "mangaImagen": "https://otakuteca.com/images/books/cover/672993e454e41.webp"
+    },
+    {
+      "title": "El chico a mi lado me está preocupando de nuevo hoy",
+      "score": "0.00",
+      "type": "MANGA",
+      "demography": "Shoujo",
+      "mangaUrl": "https://zonatmo.com/library/manga/88263/otonarikunwakyoumowatashiwokomaraseru",
+      "mangaImagen": "https://otakuteca.com/images/books/cover/67db485b6da5c.webp"
+    },
+    {
+      "title": "Majo Taisen - The War of Greedy Witches",
+      "score": "8.14",
+      "type": "MANGA",
+      "demography": "Seinen",
+      "mangaUrl": "https://zonatmo.com/library/manga/54731/majo-taisen-32-nin-no-isai-no-majo-wa-koroshiau",
+      "mangaImagen": "https://otakuteca.com/images/books/cover/67e99bf3505cf.webp"
+    },
+    {
+      "title": "Solo quiero derrotarte",
+      "score": "9.00",
+      "type": "MANHWA",
+      "demography": "Shounen",
+      "mangaUrl": "https://zonatmo.com/library/manhwa/53552/solo-quiero-vencerte",
+      "mangaImagen": "https://otakuteca.com/images/books/cover/5f674c13d1039.webp"
+    },
+    {
+      "title": "Kagurabachi",
+      "score": "8.63",
+      "type": "MANGA",
+      "demography": "Shounen",
+      "mangaUrl": "https://zonatmo.com/library/manga/2054/kagurabachi",
+      "mangaImagen": "https://otakuteca.com/images/books/cover/65076987c0141.webp"
+    },
+    {
+      "title": "Destinado a ser Amado por Villanas",
+      "score": "8.50",
+      "type": "MANHWA",
+      "demography": "Seinen",
+      "mangaUrl": "https://zonatmo.com/library/manhwa/88040/destinadoaseramadoporvillanas",
+      "mangaImagen": "https://otakuteca.com/images/books/cover/67be79886bee1.webp"
+    },
+    {
+      "title": "The Villain Of Destiny",
+      "score": "10.00",
+      "type": "MANHUA",
+      "demography": "Shounen",
+      "mangaUrl": "https://zonatmo.com/library/manhua/63572/el-villano-del-destino",
+      "mangaImagen": "https://otakuteca.com/images/books/cover/6159b0b038dd6.webp"
+    }
+  ]
 }
 ```
-### obtiene todos los mangas populares seinen 
+</details>
+
+## 🔥 Obtener todos los mangas populares seinen:
 https://tumangaonlineapi-production.up.railway.app/api/v1/manga/populares-seinen
+
+<details>
+<summary>Desplegar contenido JSON del ejemplo</summary>
+
 ```json
 {
     "statusCode": 200,
@@ -452,715 +460,997 @@ https://tumangaonlineapi-production.up.railway.app/api/v1/manga/populares-seinen
     ]
 }
 ```
-### obtener la informacion de un manga 
+</details>
+
+## 📋 Obtener la informacion de un manga:
 https://tumangaonlineapi-production.up.railway.app/api/v1/manga/info?mangaUrl=https://lectortmo.com/library/manga/23741/dr-stone
+
+<details>
+<summary>Desplegar contenido JSON del ejemplo</summary>
+
 ```json
 {
-    "statusCode": 200,
-    "data": {
-        "title": "Dr. Stone\n( 2017 )",
-        "image": "https://otakuteca.com/images/books/cover/5d924d4309b18.jpg",
-        "tipo": "MANGA",
-        "score": "8.65",
-        "demografia": "Shounen",
-        "descripcion": "Senkuu y Taiju son dos amigos y estudiantes de preparatoria, el primero de ellos es un genio del club de química mientras que el otro es un grandullón musculoso e idiota. Después de 5 largos años, Taiju ha decidido declararle su amor a Yuzuriha, pero no todo siempre sale como nos gustaría... En la tierra ocurre un suceso que convierte a todo el mundo en piedra. ¿Cómo lograrán sobrevivir en este mundo post apocalíptico?",
-        "estado": "Publicándose",
-        "generos": [
-            "Acción",
-            "Aventura",
-            "Apocalíptico",
-            "Comedia",
-            "Supervivencia"
-        ],
-        "capitulo": [
-            {
-                "Title": "Capítulo 169.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/614301"
-            },
-            {
-                "Title": "Capítulo 168.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/610128"
-            },
-            {
-                "Title": "Capítulo 167.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/605865"
-            },
-            {
-                "Title": "Capítulo 166.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/600460"
-            },
-            {
-                "Title": "Capítulo 165.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/597354"
-            },
-            {
-                "Title": "Capítulo 164.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/593167"
-            },
-            {
-                "Title": "Capítulo 163.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/588720"
-            },
-            {
-                "Title": "Capítulo 162.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/583313"
-            },
-            {
-                "Title": "Capítulo 161.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/575204"
-            },
-            {
-                "Title": "Capítulo 160.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/569910"
-            },
-            {
-                "Title": "Capítulo 159.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/560692"
-            },
-            {
-                "Title": "Capítulo 158.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/555993"
-            },
-            {
-                "Title": "Capítulo 157.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/552008"
-            },
-            {
-                "Title": "Capítulo 156.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/546212"
-            },
-            {
-                "Title": "Capítulo 155.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/542982"
-            },
-            {
-                "Title": "Capítulo 154.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/538556"
-            },
-            {
-                "Title": "Capítulo 153.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/534337"
-            },
-            {
-                "Title": "Capítulo 152.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/530049"
-            },
-            {
-                "Title": "Capítulo 151.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/525892"
-            },
-            {
-                "Title": "Capítulo 150.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/521795"
-            },
-            {
-                "Title": "Capítulo 149.00:  Z=149",
-                "UrlLeer": "https://lectortmo.com/view_uploads/517215"
-            },
-            {
-                "Title": "Capítulo 148.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/508632"
-            },
-            {
-                "Title": "Capítulo 147.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/501182"
-            },
-            {
-                "Title": "Capítulo 146.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/497515"
-            },
-            {
-                "Title": "Capítulo 145.00:  Z=145",
-                "UrlLeer": "https://lectortmo.com/view_uploads/493633"
-            },
-            {
-                "Title": "Capítulo 144.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/490458"
-            },
-            {
-                "Title": "Capítulo 143.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/487496"
-            },
-            {
-                "Title": "Capítulo 142.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/485099"
-            },
-            {
-                "Title": "Capítulo 141.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/482560"
-            },
-            {
-                "Title": "Capítulo 140.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/479199"
-            },
-            {
-                "Title": "Capítulo 139.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/477590"
-            },
-            {
-                "Title": "Capítulo 138.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/475211"
-            },
-            {
-                "Title": "Capítulo 137.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/472893"
-            },
-            {
-                "Title": "Capítulo 136.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/470392"
-            },
-            {
-                "Title": "Capítulo 135.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/468030"
-            },
-            {
-                "Title": "Capítulo 134.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/458662"
-            },
-            {
-                "Title": "Capítulo 133.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/455410"
-            },
-            {
-                "Title": "Capítulo 132.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/453206"
-            },
-            {
-                "Title": "Capítulo 131.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/451300"
-            },
-            {
-                "Title": "Capítulo 130.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/446807"
-            },
-            {
-                "Title": "Capítulo 129.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/444699"
-            },
-            {
-                "Title": "Capítulo 128.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/442215"
-            },
-            {
-                "Title": "Capítulo 127.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/440032"
-            },
-            {
-                "Title": "Capítulo 126.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/437795"
-            },
-            {
-                "Title": "Capítulo 125.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/435418"
-            },
-            {
-                "Title": "Capítulo 124.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/433541"
-            },
-            {
-                "Title": "Capítulo 123.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/431531"
-            },
-            {
-                "Title": "Capítulo 122.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/428997"
-            },
-            {
-                "Title": "Capítulo 121.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/426859"
-            },
-            {
-                "Title": "Capítulo 120.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/425218"
-            },
-            {
-                "Title": "Capítulo 119.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/423182"
-            },
-            {
-                "Title": "Capítulo 118.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/421095"
-            },
-            {
-                "Title": "Capítulo 117.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/419304"
-            },
-            {
-                "Title": "Capítulo 116.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/414865"
-            },
-            {
-                "Title": "Capítulo 115.00:  Un Segundo y un Grano",
-                "UrlLeer": "https://lectortmo.com/view_uploads/412452"
-            },
-            {
-                "Title": "Capítulo 114.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/410260"
-            },
-            {
-                "Title": "Capítulo 113.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/408369"
-            },
-            {
-                "Title": "Capítulo 112.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/406164"
-            },
-            {
-                "Title": "Capítulo 111.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/404231"
-            },
-            {
-                "Title": "Capítulo 110.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/402152"
-            },
-            {
-                "Title": "Capítulo 109.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/400129"
-            },
-            {
-                "Title": "Capítulo 108.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/398226"
-            },
-            {
-                "Title": "Capítulo 107.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/396468"
-            },
-            {
-                "Title": "Capítulo 106.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/394505"
-            },
-            {
-                "Title": "Capítulo 105.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/392423"
-            },
-            {
-                "Title": "Capítulo 104.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/390457"
-            },
-            {
-                "Title": "Capítulo 103.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/386445"
-            },
-            {
-                "Title": "Capítulo 102.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/384562"
-            },
-            {
-                "Title": "Capítulo 101.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/382552"
-            },
-            {
-                "Title": "Capítulo 100.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/380719"
-            },
-            {
-                "Title": "Capítulo 99.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/376095"
-            },
-            {
-                "Title": "Capítulo 98.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/374013"
-            },
-            {
-                "Title": "Capítulo 97.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/371900"
-            },
-            {
-                "Title": "Capítulo 96.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/369704"
-            },
-            {
-                "Title": "Capítulo 95.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/367624"
-            },
-            {
-                "Title": "Capítulo 94.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/365790"
-            },
-            {
-                "Title": "Capítulo 93.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/363396"
-            },
-            {
-                "Title": "Capítulo 92.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/361621"
-            },
-            {
-                "Title": "Capítulo 91.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/359284"
-            },
-            {
-                "Title": "Capítulo 90.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/357168"
-            },
-            {
-                "Title": "Capítulo 89.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/350623"
-            },
-            {
-                "Title": "Capítulo 88.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/347744"
-            },
-            {
-                "Title": "Capítulo 87.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/346342"
-            },
-            {
-                "Title": "Capítulo 86.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/344868"
-            },
-            {
-                "Title": "Capítulo 85.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/343172"
-            },
-            {
-                "Title": "Capítulo 84.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/341681"
-            },
-            {
-                "Title": "Capítulo 83.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/339986"
-            },
-            {
-                "Title": "Capítulo 82.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/338612"
-            },
-            {
-                "Title": "Capítulo 81.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/336969"
-            },
-            {
-                "Title": "Capítulo 80.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/335281"
-            },
-            {
-                "Title": "Capítulo 79.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/333848"
-            },
-            {
-                "Title": "Capítulo 78.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/332253"
-            },
-            {
-                "Title": "Capítulo 77.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/330680"
-            },
-            {
-                "Title": "Capítulo 76.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/329284"
-            },
-            {
-                "Title": "Capítulo 75.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/327340"
-            },
-            {
-                "Title": "Capítulo 74.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/325605"
-            },
-            {
-                "Title": "Capítulo 73.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/324010"
-            },
-            {
-                "Title": "Capítulo 72.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/322056"
-            },
-            {
-                "Title": "Capítulo 71.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/320476"
-            },
-            {
-                "Title": "Capítulo 70.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/318903"
-            },
-            {
-                "Title": "Capítulo 69.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/315629"
-            },
-            {
-                "Title": "Capítulo 68.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/314014"
-            },
-            {
-                "Title": "Capítulo 67.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/312421"
-            },
-            {
-                "Title": "Capítulo 66.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/310694"
-            },
-            {
-                "Title": "Capítulo 65.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/309146"
-            },
-            {
-                "Title": "Capítulo 64.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/307552"
-            },
-            {
-                "Title": "Capítulo 63.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/305671"
-            },
-            {
-                "Title": "Capítulo 62.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/303965"
-            },
-            {
-                "Title": "Capítulo 61.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/302801"
-            },
-            {
-                "Title": "Capítulo 60.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/301621"
-            },
-            {
-                "Title": "Capítulo 59.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/300268"
-            },
-            {
-                "Title": "Capítulo 58.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/298914"
-            },
-            {
-                "Title": "Capítulo 57.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/297743"
-            },
-            {
-                "Title": "Capítulo 56.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/295142"
-            },
-            {
-                "Title": "Capítulo 55.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/293650"
-            },
-            {
-                "Title": "Capítulo 54.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/292365"
-            },
-            {
-                "Title": "Capítulo 53.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/291110"
-            },
-            {
-                "Title": "Capítulo 52.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/289612"
-            },
-            {
-                "Title": "Capítulo 51.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/288366"
-            },
-            {
-                "Title": "Capítulo 50.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/287133"
-            },
-            {
-                "Title": "Capítulo 49.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/285849"
-            },
-            {
-                "Title": "Capítulo 48.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/284489"
-            },
-            {
-                "Title": "Capítulo 47.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/282996"
-            },
-            {
-                "Title": "Capítulo 46.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/281709"
-            },
-            {
-                "Title": "Capítulo 45.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/280051"
-            },
-            {
-                "Title": "Capítulo 44.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/278876"
-            },
-            {
-                "Title": "Capítulo 43.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/276248"
-            },
-            {
-                "Title": "Capítulo 42.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/274835"
-            },
-            {
-                "Title": "Capítulo 41.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/271995"
-            },
-            {
-                "Title": "Capítulo 40.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/270727"
-            },
-            {
-                "Title": "Capítulo 39.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/268456"
-            },
-            {
-                "Title": "Capítulo 38.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/267200"
-            },
-            {
-                "Title": "Capítulo 37.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/265948"
-            },
-            {
-                "Title": "Capítulo 36.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/264827"
-            },
-            {
-                "Title": "Capítulo 35.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/263573"
-            },
-            {
-                "Title": "Capítulo 34.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/262463"
-            },
-            {
-                "Title": "Capítulo 33.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/261347"
-            },
-            {
-                "Title": "Capítulo 32.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/260358"
-            },
-            {
-                "Title": "Capítulo 31.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/259108"
-            },
-            {
-                "Title": "Capítulo 30.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/257789"
-            },
-            {
-                "Title": "Capítulo 29.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/256544"
-            },
-            {
-                "Title": "Capítulo 28.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/255142"
-            },
-            {
-                "Title": "Capítulo 27.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/253485"
-            },
-            {
-                "Title": "Capítulo 26.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/252350"
-            },
-            {
-                "Title": "Capítulo 25.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/251098"
-            },
-            {
-                "Title": "Capítulo 24.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/249688"
-            },
-            {
-                "Title": "Capítulo 23.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/248415"
-            },
-            {
-                "Title": "Capítulo 22.50",
-                "UrlLeer": "https://lectortmo.com/view_uploads/246054"
-            },
-            {
-                "Title": "Capítulo 22.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/246141"
-            },
-            {
-                "Title": "Capítulo 21.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/244261"
-            },
-            {
-                "Title": "Capítulo 20.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/242959"
-            },
-            {
-                "Title": "Capítulo 19.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/241778"
-            },
-            {
-                "Title": "Capítulo 18.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/239758"
-            },
-            {
-                "Title": "Capítulo 17.00",
-                "UrlLeer": "https://lectortmo.com/view_uploads/238102"
-            },
-            {
-                "Title": "Capítulo 16.00:  Kohaku",
-                "UrlLeer": "https://lectortmo.com/view_uploads/236728"
-            },
-            {
-                "Title": "Capítulo 15.00:  Los dos países del mundo de piedra",
-                "UrlLeer": "https://lectortmo.com/view_uploads/235447"
-            },
-            {
-                "Title": "Capítulo 14.00:  En lo que crees",
-                "UrlLeer": "https://lectortmo.com/view_uploads/234401"
-            },
-            {
-                "Title": "Capítulo 13.00:  El comienzo del mundo de piedra",
-                "UrlLeer": "https://lectortmo.com/view_uploads/233284"
-            },
-            {
-                "Title": "Capítulo 12.00:  Epílogo del Prólogo",
-                "UrlLeer": "https://lectortmo.com/view_uploads/232165"
-            },
-            {
-                "Title": "Capítulo 11.00:  El arma de la ciencia",
-                "UrlLeer": "https://lectortmo.com/view_uploads/230929"
-            },
-            {
-                "Title": "Capítulo 10.00:  La banda de la ciencia",
-                "UrlLeer": "https://lectortmo.com/view_uploads/229892"
-            },
-            {
-                "Title": "Capítulo 9.50:  Extra - ¡¡La cerámica: Intentémos hacerlo!!",
-                "UrlLeer": "https://lectortmo.com/view_uploads/228698"
-            },
-            {
-                "Title": "Capítulo 9.00:  Senku vs Tsukasa",
-                "UrlLeer": "https://lectortmo.com/view_uploads/228552"
-            },
-            {
-                "Title": "Capítulo 8.00:  Encender la señal",
-                "UrlLeer": "https://lectortmo.com/view_uploads/226598"
-            },
-            {
-                "Title": "Capítulo 7.00:  La aventura de la pólvora",
-                "UrlLeer": "https://lectortmo.com/view_uploads/225353"
-            },
-            {
-                "Title": "Capítulo 6.00:  Taiju vs Tsukasa",
-                "UrlLeer": "https://lectortmo.com/view_uploads/223984"
-            },
-            {
-                "Title": "Capítulo 5.00:  Yuzuriha",
-                "UrlLeer": "https://lectortmo.com/view_uploads/222895"
-            },
-            {
-                "Title": "Capítulo 4.00:  La almeja blanca pura",
-                "UrlLeer": "https://lectortmo.com/view_uploads/221922"
-            },
-            {
-                "Title": "Capítulo 3.00:  Rey del mundo de piedra",
-                "UrlLeer": "https://lectortmo.com/view_uploads/220666"
-            },
-            {
-                "Title": "Capítulo 2.00:  Fantasia vs Ciencia",
-                "UrlLeer": "https://lectortmo.com/view_uploads/219474"
-            },
-            {
-                "Title": "Capítulo 1.00:  Mundo de piedra",
-                "UrlLeer": "https://lectortmo.com/view_uploads/218193"
-            }
-        ]
-    }
+  "statusCode": 200,
+  "data": {
+    "title": "Dr. Stone ( 2017 - 2022 )",
+    "image": "https://otakuteca.com/images/books/cover/5d924d4309b18.webp",
+    "tipo": "MANGA",
+    "score": "8.96",
+    "demografia": "Shounen",
+    "descripcion": "Senkuu y Taiju son dos amigos inseparables durante sus años de preparatoria: el primero, un prodigio de la química, y el segundo, un grandullón musculoso de gran corazón, aunque no precisamente brillante. Cinco años después, cuando Taiju decide declararle su amor a Yuzuriha, un suceso inimaginable sacude la Tierra: un cataclismo transforma a la humanidad en piedra. Ahora, en un mundo postapocalíptico, ambos deberán combinar la astucia científica de Senkuu y la determinación inquebrantable de Taiju para luchar por la supervivencia y, quizá, devolver la vida a un planeta petrificado.",
+    "estado": "Finalizado",
+    "generos": [
+      "Acción",
+      "Aventura",
+      "Apocalíptico",
+      "Comedia",
+      "Supervivencia",
+      "Misterio",
+      "Ciencia Ficción"
+    ],
+    "capitulo": [
+      {
+        "Title": "Capítulo 236.00 Spin Off: Capítulo 3, Ciencia del Futuro",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 235.00 Spin Off Capítulo 2",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 234.00 Spin Off Capítulo 1",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 233.00 Epílogo - Extra",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 232.10 Último Capítulo A COLOR",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 232.00 Último Capítulo",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 231.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 230.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 229.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 228.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 227.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 226.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 225.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 224.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 223.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 222.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 221.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 220.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 219.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 218.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 217.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 216.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 215.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 214.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 213.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 212.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 211.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 210.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 209.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 208.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 207.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 206.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 205.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 204.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 203.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 202.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 201.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 200.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 199.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 198.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 197.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 196.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 195.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 194.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 193.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 192.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 191.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 190.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 189.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 188.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 187.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 186.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 185.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 184.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 183.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 182.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 181.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 180.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 179.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 178.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 177.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 176.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 175.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 174.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 173.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 172.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 171.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 170.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 169.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 168.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 167.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 166.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 165.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 164.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 163.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 162.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 161.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 160.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 159.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 158.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 157.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 156.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 155.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 154.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 153.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 152.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 151.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 150.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 149.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 148.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 147.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 146.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 145.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 144.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 143.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 142.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 141.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 140.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 139.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 138.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 137.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 136.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 135.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 134.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 133.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 132.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 131.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 130.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 129.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 128.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 127.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 126.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 125.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 124.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 123.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 122.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 121.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 120.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 119.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 118.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 117.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 116.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 115.00 Un Segundo y un Grano",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 114.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 113.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 112.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 111.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 110.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 109.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 108.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 107.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 106.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 105.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 104.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 103.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 102.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 101.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 100.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 99.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 98.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 97.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 96.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 95.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 94.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 93.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 92.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 91.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 90.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 89.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 88.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 87.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 86.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 85.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 84.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 83.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 82.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 81.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 80.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 79.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 78.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 77.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 76.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 75.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 74.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 73.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 72.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 71.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 70.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 69.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 68.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 67.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 66.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 65.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 64.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 63.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 62.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 61.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 60.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 59.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 58.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 57.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 56.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 55.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 54.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 53.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 52.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 51.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 50.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 49.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 48.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 47.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 46.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 45.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 44.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 43.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 42.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 41.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 40.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 39.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 38.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 37.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 36.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 35.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 34.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 33.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 32.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 31.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 30.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 29.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 28.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 27.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 26.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 25.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 24.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 23.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 22.50",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 22.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 21.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 20.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 19.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 18.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 17.00",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 16.00 Kohaku",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 15.00 Los dos países del mundo de piedra",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 14.00 En lo que crees",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 13.00 El comienzo del mundo de piedra",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 12.00 Epílogo del Prólogo",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 11.00 El arma de la ciencia",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 10.00 La banda de la ciencia",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 9.50 Extra - ¡¡La cerámica: Intentémos hacerlo!!",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 9.00 Senku vs Tsukasa",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 8.00 Encender la señal",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 7.00 La aventura de la pólvora",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 6.00 Taiju vs Tsukasa",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 5.00 Yuzuriha",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 4.00 La almeja blanca pura",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 3.00 Rey del mundo de piedra",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 2.00 Fantasia vs Ciencia",
+        "UrlLeer": ""
+      },
+      {
+        "Title": "Capítulo 1.00 Mundo de piedra",
+        "UrlLeer": ""
+      }
+    ]
+  }
 }
 ```
+</details>
+
 ### obtener las imagenes de un capitulo de un manga
 https://tumangaonlineapi-production.up.railway.app/api/v1/get-manga?urlPage=https://lectortmo.com/view_uploads/569910
 ```json
@@ -1207,148 +1497,209 @@ https://tumangaonlineapi-production.up.railway.app/api/v1/get-manga?urlPage=http
 - amateur
 - erotic
 
-## enlace 
+## Enlace 
 https://tumangaonlineapi-production.up.railway.app/api/v1/manga/library?title=naruto
+
+<details>
+<summary>Desplegar contenido JSON del ejemplo</summary>
+
 ```json
 {
-    "statusCode": 200,
-    "data": [
-        {
-            "title": "Naruto",
-            "score": "8.50",
-            "type": "MANGA",
-            "demography": "Shounen",
-            "mangaUrl": "https://lectortmo.com/library/manga/150/naruto",
-            "mangaImagen": "https://otakuteca.com/images/books/cover/5ed5b1dfc26c3.jpg"
-        },
-        {
-            "title": "Boruto: Naruto Next Generations",
-            "score": "6.92",
-            "type": "MANGA",
-            "demography": "Shounen",
-            "mangaUrl": "https://lectortmo.com/library/manga/15772/boruto",
-            "mangaImagen": "https://otakuteca.com/images/books/cover/5f3ef9435be6c.jpg"
-        },
-        {
-            "title": "Joke Box 7 Naruto Fanbook-Kakashi x Iruka",
-            "score": "0.00",
-            "type": "DOUJINSHI",
-            "demography": "Shoujo",
-            "mangaUrl": "https://lectortmo.com/library/doujinshi/40948/joke-box-7-naruto-fanbook-kakashi-x-iruka",
-            "mangaImagen": "https://otakuteca.com/images/books/cover/5ba4189b74e65.jpg"
-        },
-        {
-            "title": "Naruto - Watashi no Kareshi wa Keikokubijin (Doujinshi)",
-            "score": "0.00",
-            "type": "DOUJINSHI",
-            "demography": "Shounen",
-            "mangaUrl": "https://lectortmo.com/library/doujinshi/46640/naruto-watashi-no-kareshi-wa-keikokubijin-doujinshi",
-            "mangaImagen": "https://otakuteca.com/images/books/cover/5db834ffccd43.jpg"
-        },
-        {
-            "title": "Naruto Gaiden: Nanadaime Hokage to Akairo no Hanatsuzuki",
-            "score": "8.69",
-            "type": "MANGA",
-            "demography": "Shounen",
-            "mangaUrl": "https://lectortmo.com/library/manga/11344/naruto-gaiden-nanadaime-hokage-to-akairo-no-hanatsuzuki",
-            "mangaImagen": "https://otakuteca.com/images/books/cover/5edb2d0bc3bb2.jpg"
-        },
-        {
-            "title": "Naruto Color",
-            "score": "10.00",
-            "type": "MANGA",
-            "demography": "Shounen",
-            "mangaUrl": "https://lectortmo.com/library/manga/48176/naruto-color",
-            "mangaImagen": "https://otakuteca.com/images/books/cover/5e40d9a4efc46.jpg"
-        },
-        {
-            "title": "Boruto ~Naruto The Movie~ Special Gaiden",
-            "score": "8.51",
-            "type": "MANGA",
-            "demography": "Shounen",
-            "mangaUrl": "https://lectortmo.com/library/manga/12855/Boruto-Naruto-The-Movie-Specia",
-            "mangaImagen": "https://otakuteca.com/images/books/cover/12855_TMOmanga013644.jpg"
-        },
-        {
-            "title": "Naruto Especial: Boruto Road to B",
-            "score": "8.35",
-            "type": "ONE SHOT",
-            "demography": "Shounen",
-            "mangaUrl": "https://lectortmo.com/library/one_shot/12697/Naruto-Especial-Boruto-Road-to",
-            "mangaImagen": "https://otakuteca.com/images/books/cover/12697_TMOmanga043300.jpg"
-        },
-        {
-            "title": "Naruto: The Path Lit by the Full Moon",
-            "score": "8.29",
-            "type": "ONE SHOT",
-            "demography": "Shounen",
-            "mangaUrl": "https://lectortmo.com/library/one_shot/15552/naruto-gaiden-michita-tsuki-ga-terasu-michi",
-            "mangaImagen": "https://otakuteca.com/images/books/cover/15552_TMOManga5719e0cca25b9.jpg"
-        },
-        {
-            "title": "Naruto (Piloto)",
-            "score": "7.99",
-            "type": "ONE SHOT",
-            "demography": "Shounen",
-            "mangaUrl": "https://lectortmo.com/library/one_shot/31871/Naruto-Piloto",
-            "mangaImagen": "https://otakuteca.com/images/books/cover/5f46aa3cb4e9c.jpg"
-        },
-        {
-            "title": "Naruto- festival de verano",
-            "score": "0.00",
-            "type": "DOUJINSHI",
-            "demography": "Shoujo",
-            "mangaUrl": "https://lectortmo.com/library/doujinshi/52147/naruto-festival-de-verano",
-            "mangaImagen": "https://otakuteca.com/images/books/cover/5f23b7fbea104.jpg"
-        },
-        {
-            "title": "Naruto: The Path Lit by the Full Moon",
-            "score": "8.71",
-            "type": "ONE SHOT",
-            "demography": "Shounen",
-            "mangaUrl": "https://lectortmo.com/library/one_shot/12844/Naruto-ga-Hokage-ni-Natta-Hi",
-            "mangaImagen": "https://otakuteca.com/images/books/cover/12844_TMOmanga024024.jpg"
-        },
-        {
-            "title": "In a Different World with the Naruto System",
-            "score": "0.00",
-            "type": "NOVELA",
-            "demography": "Seinen",
-            "mangaUrl": "https://lectortmo.com/library/novel/41779/in-a-different-world-with-the-naruto-system",
-            "mangaImagen": "https://otakuteca.com/images/books/cover/5c027a1806966.jpg"
-        },
-        {
-            "title": "Naruto parodia",
-            "score": "5.46",
-            "type": "MANGA",
-            "demography": "Shounen",
-            "mangaUrl": "https://lectortmo.com/library/manga/12081/Naruto-parodia",
-            "mangaImagen": "https://otakuteca.com/images/books/cover/12081_TMOmanga094331.jpg"
-        },
-        {
-            "title": "NARUTO GAIDEN NUEVO CICLO",
-            "score": "5.59",
-            "type": "DOUJINSHI",
-            "demography": "Shounen",
-            "mangaUrl": "https://lectortmo.com/library/doujinshi/19625/NARUTO-GAIDEN-NUEVO-CICLO",
-            "mangaImagen": "https://otakuteca.com/images/books/cover/19625_TMOManga57c76213ecc34.jpg"
-        },
-        {
-            "title": "Naruto ND",
-            "score": "6.75",
-            "type": "DOUJINSHI",
-            "demography": "Shounen",
-            "mangaUrl": "https://lectortmo.com/library/doujinshi/16018/Naruto-ND",
-            "mangaImagen": "https://otakuteca.com/images/books/cover/16018_TMOManga5737cbea47cd2.jpg"
-        },
-        {
-            "title": "Naruto-sazanka",
-            "score": "0.00",
-            "type": "DOUJINSHI",
-            "demography": "Shoujo",
-            "mangaUrl": "https://lectortmo.com/library/doujinshi/52754/naruto-sazanka",
-            "mangaImagen": "https://otakuteca.com/images/books/cover/5f40eaa6178fb.jpg"
-        }
-    ]
+  "statusCode": 200,
+  "data": [
+    {
+      "title": "Boruto: Naruto Next Generations",
+      "score": "5.00",
+      "type": "MANGA",
+      "demography": "Shounen",
+      "mangaUrl": "https://zonatmo.com/library/manga/2991/boruto-naruto-next-generations",
+      "mangaImagen": "https://otakuteca.com/images/books/cover/61eabe6e3934b.webp"
+    },
+    {
+      "title": "Naruto Shippuden parejas Doujines Yaoi",
+      "score": "7.00",
+      "type": "DOUJINSHI",
+      "demography": "Josei",
+      "mangaUrl": "https://zonatmo.com/library/doujinshi/57108/naruto-shippuden-parejas-doujines-yaoi",
+      "mangaImagen": "https://otakuteca.com/images/books/cover/601ca58f9692d.webp"
+    },
+    {
+      "title": "Naruto Full Color",
+      "score": "9.25",
+      "type": "MANGA",
+      "demography": "Shounen",
+      "mangaUrl": "https://zonatmo.com/library/manga/475/naruto-digital-colored-comics",
+      "mangaImagen": "https://otakuteca.com/images/books/cover/617ebcafa0486.webp"
+    },
+    {
+      "title": "Joke Box 7 Naruto Fanbook-Kakashi x Iruka",
+      "score": "7.00",
+      "type": "DOUJINSHI",
+      "demography": "Shoujo",
+      "mangaUrl": "https://zonatmo.com/library/doujinshi/40948/joke-box-7-naruto-fanbook-kakashi-x-iruka",
+      "mangaImagen": "https://otakuteca.com/images/books/cover/5ba4189b74e65.webp"
+    },
+    {
+      "title": "Tengo la mano fría",
+      "score": "0.00",
+      "type": "DOUJINSHI",
+      "demography": "Shoujo",
+      "mangaUrl": "https://zonatmo.com/library/doujinshi/59723/naruto-dj-tenohira-ga-atsui",
+      "mangaImagen": "https://otakuteca.com/images/books/cover/6098261956cee.webp"
+    },
+    {
+      "title": "Naruto: Sasuke Retsuden - The Manga",
+      "score": "7.00",
+      "type": "MANGA",
+      "demography": "Shounen",
+      "mangaUrl": "https://zonatmo.com/library/manga/73141/narutosasukeretsuden",
+      "mangaImagen": "https://otakuteca.com/images/books/cover/635833b8423ea.webp"
+    },
+    {
+      "title": "NARUTO Gaiden: Uzu no Naka no Tsumujikaze",
+      "score": "8.50",
+      "type": "ONE SHOT",
+      "demography": "Shounen",
+      "mangaUrl": "https://zonatmo.com/library/one_shot/78459/naruto-gaiden-uzu-no-naka-no-tsumujikaze",
+      "mangaImagen": "https://otakuteca.com/images/books/cover/64b4339e9a7c7.webp"
+    },
+    {
+      "title": "Naruto Gaiden: Nanadaime Hokage to Akairo no Hanatsuzuki",
+      "score": "8.00",
+      "type": "MANGA",
+      "demography": "Shounen",
+      "mangaUrl": "https://zonatmo.com/library/manga/11344/naruto-gaiden-nanadaime-hokage-to-akairo-no-hanatsuzuki",
+      "mangaImagen": "https://otakuteca.com/images/books/cover/5edb2d0bc3bb2.webp"
+    },
+    {
+      "title": "Naruto - Watashi no Kareshi wa Keikokubijin (Doujinshi)",
+      "score": "0.00",
+      "type": "DOUJINSHI",
+      "demography": "Shounen",
+      "mangaUrl": "https://zonatmo.com/library/doujinshi/46640/naruto-watashi-no-kareshi-wa-keikokubijin-doujinshi",
+      "mangaImagen": "https://otakuteca.com/images/books/cover/5db834ffccd43.webp"
+    },
+    {
+      "title": "Renge to Naruto!",
+      "score": "10.00",
+      "type": "MANGA",
+      "demography": "Shounen",
+      "mangaUrl": "https://zonatmo.com/library/manga/80575/renge-to-naruto",
+      "mangaImagen": "https://otakuteca.com/images/books/cover/6550532b16a6c.webp"
+    },
+    {
+      "title": "Naruto Especial: Boruto Road to B",
+      "score": "8.35",
+      "type": "ONE SHOT",
+      "demography": "Shounen",
+      "mangaUrl": "https://zonatmo.com/library/one_shot/12697/Naruto-Especial-Boruto-Road-to",
+      "mangaImagen": "https://otakuteca.com/images/books/cover/12697_TMOmanga043300.webp"
+    },
+    {
+      "title": "Naruto- festival de verano",
+      "score": "0.00",
+      "type": "DOUJINSHI",
+      "demography": "Shoujo",
+      "mangaUrl": "https://zonatmo.com/library/doujinshi/52147/naruto-festival-de-verano",
+      "mangaImagen": "https://otakuteca.com/images/books/cover/5f23b7fbea104.webp"
+    },
+    {
+      "title": "La Supremacia De Naruto",
+      "score": "7.50",
+      "type": "NOVELA",
+      "demography": "Shounen",
+      "mangaUrl": "https://zonatmo.com/library/novel/57666/la-supremacia-de-naruto",
+      "mangaImagen": "https://otakuteca.com/images/books/cover/6041fae923aaa.webp"
+    },
+    {
+      "title": "Naruto (Piloto)",
+      "score": "8.00",
+      "type": "ONE SHOT",
+      "demography": "Shounen",
+      "mangaUrl": "https://zonatmo.com/library/one_shot/31871/naruto-piloto",
+      "mangaImagen": "https://otakuteca.com/images/books/cover/5f46aa3cb4e9c.webp"
+    },
+    {
+      "title": "Naruto: The Path Lit by the Full Moon",
+      "score": "8.00",
+      "type": "ONE SHOT",
+      "demography": "Shounen",
+      "mangaUrl": "https://zonatmo.com/library/one_shot/15552/naruto-gaiden-michita-tsuki-ga-terasu-michi",
+      "mangaImagen": "https://otakuteca.com/images/books/cover/15552_TMOManga5719e0cca25b9.webp"
+    },
+    {
+      "title": "Naruto: The Path Lit by the Full Moon",
+      "score": "9.00",
+      "type": "ONE SHOT",
+      "demography": "Shounen",
+      "mangaUrl": "https://zonatmo.com/library/one_shot/12844/Naruto-ga-Hokage-ni-Natta-Hi",
+      "mangaImagen": "https://otakuteca.com/images/books/cover/12844_TMOmanga024024.webp"
+    },
+    {
+      "title": "Naruto Feliz Cumpleaños",
+      "score": "0.00",
+      "type": "ONE SHOT",
+      "demography": "Shoujo",
+      "mangaUrl": "https://zonatmo.com/library/one_shot/58997/sasunaru-naruto-feliz-cumpleanos",
+      "mangaImagen": "https://otakuteca.com/images/books/cover/607502731bf66.webp"
+    },
+    {
+      "title": "Naruto-sazanka",
+      "score": "6.00",
+      "type": "DOUJINSHI",
+      "demography": "Shoujo",
+      "mangaUrl": "https://zonatmo.com/library/doujinshi/52754/naruto-sazanka",
+      "mangaImagen": "https://otakuteca.com/images/books/cover/5f40eaa6178fb.webp"
+    },
+    {
+      "title": "Sistema Naruto en el mundo de One Piece",
+      "score": "7.00",
+      "type": "NOVELA",
+      "demography": "Shounen",
+      "mangaUrl": "https://zonatmo.com/library/novel/57622/sistema-naruto-en-el-mundo-de-one-piece",
+      "mangaImagen": "https://otakuteca.com/images/books/cover/6033c3ab501df.webp"
+    },
+    {
+      "title": "Konoha's Story—The Steam Ninja Scrolls",
+      "score": "0.00",
+      "type": "MANGA",
+      "demography": "Shounen",
+      "mangaUrl": "https://zonatmo.com/library/manga/73582/naruto-konohas-story-the-steam-ninja-scrolls",
+      "mangaImagen": "https://otakuteca.com/images/books/cover/6394e019eacaa.webp"
+    },
+    {
+      "title": "In a Different World with the Naruto System",
+      "score": "0.00",
+      "type": "NOVELA",
+      "demography": "Seinen",
+      "mangaUrl": "https://zonatmo.com/library/novel/41779/in-a-different-world-with-the-naruto-system",
+      "mangaImagen": "https://otakuteca.com/images/books/cover/5c027a1806966.webp"
+    },
+    {
+      "title": "NARUTO GAIDEN NUEVO CICLO",
+      "score": "5.59",
+      "type": "DOUJINSHI",
+      "demography": "Shounen",
+      "mangaUrl": "https://zonatmo.com/library/doujinshi/19625/NARUTO-GAIDEN-NUEVO-CICLO",
+      "mangaImagen": "https://otakuteca.com/images/books/cover/19625_TMOManga57c76213ecc34.webp"
+    },
+    {
+      "title": "Naruto ND",
+      "score": "6.75",
+      "type": "DOUJINSHI",
+      "demography": "Shounen",
+      "mangaUrl": "https://zonatmo.com/library/doujinshi/16018/Naruto-ND",
+      "mangaImagen": "https://otakuteca.com/images/books/cover/16018_TMOManga5737cbea47cd2.webp"
+    },
+    {
+      "title": "Ruki (Naruto Universe)",
+      "score": "0.00",
+      "type": "DOUJINSHI",
+      "demography": "Shounen",
+      "mangaUrl": "https://zonatmo.com/library/doujinshi/80650/ruki-naruto-universe",
+      "mangaImagen": "https://otakuteca.com/images/books/cover/6555afe6f12d2.webp"
+    }
+  ]
 }
 ```
+</details>
