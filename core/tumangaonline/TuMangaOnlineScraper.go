@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"log"
+	"net/url"
 	"regexp"
 	s "strings"
 
@@ -188,15 +189,14 @@ func getImagenListaManga(imagenUrl string, mangaIdentificador string) string {
 
 }
 
-// https://lectormanga.com/library?title=&order_field=title&order_item=likes_count&order_dir=desc&type=&demography=seinen&webcomic=&yonkoma=&amateur=&erotic=true
-// https://lectortmo.com/library?title=&order_field=title&order_item=likes_count&order_dir=desc&type=&demography=seinen&webcomic=&yonkoma=&amateur=&erotic=true
-// https://lectortmo.com/library?order_item=likes_count&order_dir=desc&title=&_page=1&filter_by=title&type=&demography=&status=&translation_status=&webcomic=&yonkoma=&amateur=&erotic=
-// title string, orderField string, orderItem string, orderDir string, Type string, demography string, webcomic string, yonkoma string, amateur string, erotic string
+// Buscar manga por título
 func BuscarMangas(order_item string, order_dir string, title string, _page string, filter_by string, Type string, demography string, status string, translation_status string, webcomic string, yonkoma string, amateur string, erotic string) []models.Library {
 	var mangas []models.Library
 	c := colly.NewCollector()
-	url := fmt.Sprintf("https://lectortmo.com/library?order_item=%s&order_dir=%s&title=%s&_page=%s&filter_by=%s&type=%s&demography=%s&status=%s&translation_status=%s&webcomic=%s&yonkoma=%s&amateur=%s&erotic=%s",
-		order_item, order_dir, title, _page, filter_by, Type, demography, status, translation_status, webcomic, yonkoma, amateur, erotic)
+	encodedTitle := url.QueryEscape(title)
+
+	url := fmt.Sprintf("https://zonatmo.com/library?order_item=%s&order_dir=%s&title=%s&_pg=%s&filter_by=%s&type=%s&demography=%s&status=%s&translation_status=%s&webcomic=%s&yonkoma=%s&amateur=%s&erotic=%s",
+		order_item, order_dir, encodedTitle, _page, filter_by, Type, demography, status, translation_status, webcomic, yonkoma, amateur, erotic)
 
 	c.OnHTML("#app > main > div:nth-child(2) > div.col-12.col-lg-8.col-xl-9 > div:nth-child(3)", func(element *colly.HTMLElement) {
 
