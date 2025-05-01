@@ -1,10 +1,11 @@
 package controllers
 
 import (
+	"net/http"
+
 	"github.com/gofiber/fiber/v2"
 	"github.com/julioolivares90/TumangaOnlineApi/core/tumangaonline"
 	"github.com/julioolivares90/TumangaOnlineApi/models"
-	"net/http"
 )
 
 func GetMangasPopularesSeinen(c *fiber.Ctx) error {
@@ -19,7 +20,7 @@ func GetMangasPopularesSeinen(c *fiber.Ctx) error {
 	} else {
 		errorResponse := models.Response{
 			StatusCode: http.StatusBadGateway,
-			Data:       "no se encontraron mangas",
+			Data:       "No se encontraron mangas",
 		}
 		return c.JSON(errorResponse)
 	}

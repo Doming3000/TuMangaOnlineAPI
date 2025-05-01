@@ -5,22 +5,21 @@ type MangaInfoTMO struct {
 
 	Image string `json:"image"`
 
-	Tipo string `json:"tipo"`
+	Type string `json:"type"`
 
 	Score string `json:"score"`
 
-	Demografia string `json:"demografia"`
+	Demography string `json:"demography"`
 
-	Descripcion string `json:"descripcion"`
+	Synopsis string `json:"synopsis"`
 
-	Estado string `json:"estado"`
+	Status string `json:"status"`
 
-	Generos []string `json:"generos"`
+	Genres []string `json:"genres"`
 
-	Capitulos []Capitulo `json:"capitulo"`
+	Chapters []Chapter `json:"chapters"`
 }
 
-type Capitulo struct {
-	Title   string
-	UrlLeer string
+type Chapter struct {
+	Title string
 }
