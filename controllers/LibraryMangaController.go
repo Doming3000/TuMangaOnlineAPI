@@ -34,12 +34,9 @@ func GetInfoLibrary(c *fiber.Ctx) error {
 	mangas := tumangaonline.BuscarMangas(orderItem, orderDir, title, _page, filter_by, Type, demography, status, translation_status, webcomic, yonkoma, amateur, erotic)
 
 	if mangas == nil {
-		response := models.Response{
-			StatusCode: http.StatusBadRequest,
-			Data:       "Ocurrio un error",
-		}
-		return c.JSON(response)
+		mangas = []models.Library{}
 	}
+
 	response := models.Response{
 		StatusCode: http.StatusOK,
 		Data:       mangas,

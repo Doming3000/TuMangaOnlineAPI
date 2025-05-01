@@ -171,7 +171,7 @@ func getImagenManga(imagenUrl string, mangaIdentificador string) string {
 }
 
 // getImagenListaManga obtiene la imagen de fondo de la lista de mangas de la pagina de inicio
-func getImagenListaManga(imagenUrl string, mangaIdentificador string) string {
+func getImagenListaManga(imagenUrl string, _ string) string {
 
 	cadenaSinBackground := s.Replace(imagenUrl, "background-image: url('", " ", -1)
 
