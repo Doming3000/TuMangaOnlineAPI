@@ -29,7 +29,7 @@ go run App.go
 ## 🗞️ Obtener todos los mangas populares:
 https://tumangaonlineapi-production.up.railway.app/api/v1/manga/populares
 
-Ejemplo de respuesta (limitado a 2 para facilitar la lectura):
+Ejemplo de respuesta (limitado a 2 resultados para facilitar la lectura):
 ```json
 {
   "statusCode": 200,
@@ -57,7 +57,7 @@ Ejemplo de respuesta (limitado a 2 para facilitar la lectura):
 ## 📋 Obtener la informacion de un manga:
 https://tumangaonlineapi-production.up.railway.app/api/v1/manga/info?mangaUrl=https://lectortmo.com/library/manga/23741/dr-stone
 
-Ejemplo de respuesta (capitulos limitados para facilitar la lectura):
+Ejemplo de respuesta (limitado a 3 capítulos para facilitar la lectura):
 ```json
 {
   "statusCode": 200,
@@ -141,3 +141,6 @@ Ejemplo de respuesta (limitado a 3 resultados para facilitar la lectura):
     }
   ]
 }
+```
+## 📷 Obtener las imágenes de un capitulo (WIP)
+https://tumangaonlineapi-production.up.railway.app/api/v1/get-manga?urlPage=https://zonatmo.com/viewer/0e59105a34f7d280b19054cdf2c90d9c/paginated
