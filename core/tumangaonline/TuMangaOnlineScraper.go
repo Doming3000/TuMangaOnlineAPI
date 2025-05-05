@@ -2,10 +2,13 @@ package tumangaonline
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"log"
+	"net/http"
 	"net/url"
 	"regexp"
+	"strconv"
 	s "strings"
 
 	"github.com/chromedp/cdproto/cdp"
@@ -68,7 +71,124 @@ func GetInfoManga(url string) models.MangaInfoTMO {
 	return mangaInfo
 }
 
-// GetMangasPopulares obtiene los mangas mas populares
+// Obtener la URL de un capitulo por su número
+func FindChapterURLByNumber(mangaURL, capNumber string) ([]models.ChapterData, error) {
+	var results []models.ChapterData
+
+	userCapNum, err := parseChapterNumber(capNumber)
+	if err != nil {
+		return nil, fmt.Errorf("capítulo inválido: %w", err)
+	}
+
+	c := colly.NewCollector()
+
+	c.OnHTML("li.upload-link", func(e *colly.HTMLElement) {
+		chapterTitle := e.ChildText("a.btn-collapse")
+		chNum, _ := extractChapterNumber(chapterTitle)
+		if chNum == 0 || chNum != userCapNum {
+			return
+		}
+		title := s.TrimSpace(chapterTitle)
+
+		// Recorre todos los scans de este capítulo
+		e.ForEach("ul.chapter-list > li.list-group-item", func(_ int, scanEl *colly.HTMLElement) {
+			scan := s.TrimSpace(scanEl.ChildText("div.col-4.col-md-6.text-truncate span a"))
+			date := s.TrimSpace(scanEl.ChildText("div.col-4.col-md-2.text-center span.badge-primary"))
+			readURL := scanEl.ChildAttr("div.col-2.col-sm-1.text-right a.btn.btn-default.btn-sm", "href")
+			if readURL == "" {
+				return
+			}
+			if !s.HasPrefix(readURL, "http") {
+				readURL = "https://zonatmo.com" + readURL
+			}
+			viewerURL, err := ResolveChapterURL(readURL)
+			if err != nil {
+				viewerURL = readURL
+			}
+			results = append(results, models.ChapterData{
+				Title:   title,
+				UrlRead: viewerURL,
+				Scan:    scan,
+				Date:    extractDate(date),
+			})
+		})
+	})
+
+	if err := c.Visit(mangaURL); err != nil {
+		return nil, err
+	}
+
+	if len(results) == 0 {
+		return nil, errors.New("capítulo no encontrado")
+	}
+
+	return results, nil
+}
+
+// Extraer el número de capítulo como float64 desde el texto, ej: "Capítulo 1.00  ..." => 1.0
+func extractChapterNumber(text string) (float64, error) {
+	re := regexp.MustCompile(`Cap[ií]tulo\s+([0-9]+(?:\.[0-9]+)?)`)
+	matches := re.FindStringSubmatch(text)
+	if len(matches) < 2 {
+		return 0, errors.New("no se encontró número de capítulo")
+	}
+	return strconv.ParseFloat(matches[1], 64)
+}
+
+// Parsear el número de capítulo como float64
+func parseChapterNumber(input string) (float64, error) {
+	return strconv.ParseFloat(input, 64)
+}
+
+// Extraer la fecha de un string
+func extractDate(dateRaw string) string {
+	re := regexp.MustCompile(`\d{4}-\d{2}-\d{2}`)
+	match := re.FindString(dateRaw)
+	return match
+}
+
+// Seguir la redirección y devuelve la URL final del visor.
+func ResolveChapterURL(initialURL string) (string, error) {
+	client := &http.Client{
+		CheckRedirect: func(req *http.Request, via []*http.Request) error {
+			return http.ErrUseLastResponse
+		},
+	}
+
+	req, err := http.NewRequest("GET", initialURL, nil)
+	if err != nil {
+		return "", fmt.Errorf("error creando la solicitud HTTP: %w", err)
+	}
+
+	req.Header.Set("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64)")
+	req.Header.Set("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9")
+	req.Header.Set("Referer", "https://zonatmo.com")
+
+	resp, err := client.Do(req)
+	if err != nil {
+		return "", fmt.Errorf("error al hacer la solicitud HTTP: %w", err)
+	}
+	defer resp.Body.Close()
+
+	if resp.StatusCode >= 300 && resp.StatusCode < 400 {
+		location := resp.Header.Get("Location")
+		if location == "" {
+			return "", errors.New("la redirección no contiene encabezado Location")
+		}
+		if s.HasPrefix(location, "/") {
+			return "https://zonatmo.com" + location, nil
+		}
+		return location, nil
+	}
+
+	if resp.StatusCode == 200 {
+		return initialURL, nil
+	}
+
+	return "", fmt.Errorf("error en la solicitud: %d", resp.StatusCode)
+}
+
+// Obtener los mangas populares
 func GetMangasPopulares(pageNumber int) []models.MangaTMO {
 	var mangasPopulares []models.MangaTMO
 	url := utilities.TUMANGAONLINE_BASE_URL

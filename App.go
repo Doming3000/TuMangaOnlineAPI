@@ -37,6 +37,7 @@ func startServer() {
 	app.Get("/api/v1/manga/listas", controllers.GetListasMangas)
 	app.Get("/api/v1/get-cookies", controllers.GetCookiesFromTMO)
 	app.Get("/api/v1/get-manga", controllers.GetPageFromTMOWithCookie)
+	app.Get("/api/capitulo", controllers.GetChapterURLHandler)
 
 	port := getPort()
 	addr := "0.0.0.0:" + port
