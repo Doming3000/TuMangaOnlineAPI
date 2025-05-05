@@ -1,11 +1,12 @@
 package controllers
 
 import (
+	"net/http"
+	s "strings"
+
 	"github.com/gofiber/fiber/v2"
 	"github.com/julioolivares90/TumangaOnlineApi/core/tumangaonline"
 	"github.com/julioolivares90/TumangaOnlineApi/models"
-	"net/http"
-	s "strings"
 )
 
 func GetInfoManga(c *fiber.Ctx) error {
@@ -63,7 +64,7 @@ func GetPageFromTMOWithCookie(c *fiber.Ctx) error {
 		}
 		c.JSON(response)
 	}
-	pages, err := tumangaonline.GetImageChapter2(urlRefer, url)
+	pages, err := tumangaonline.GetImageChapter(urlRefer, url)
 	if err != nil {
 		response := models.Response{
 			StatusCode: http.StatusBadRequest,
