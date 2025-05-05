@@ -92,6 +92,30 @@ Ejemplo de respuesta (limitado a 3 capítulos para facilitar la lectura):
   }
 }
 ```
+## 📒 Obtener enlaces a un capítulo de un manga
+https://tumangaonlineapi-production.up.railway.app/api/capitulo?url=https://zonatmo.com/library/manga/65514/giant-ojou-sama&cap=1
+
+Ejemplo de respuesta:
+```json
+{
+  "statusCode": 200,
+  "data": [
+    {
+      "title": "Capítulo 1.00  ¡Invasión! ¡Un gran intruso!",
+      "urlRead": "https://zonatmo.com/viewer/895272d32a2f0dbb2db0e43378311043/paginated",
+      "scan": "Senbonzakura Translations",
+      "date": "2021-12-21"
+    },
+    {
+      "title": "Capítulo 1.00  ¡Invasión! ¡Un gran intruso!",
+      "urlRead": "https://zonatmo.com/viewer/ec07fbf13f2416f9612bea2f699fd67a/paginated",
+      "scan": "XBLOYT traducciones",
+      "date": "2023-07-16"
+    }
+  ]
+}
+```
+
 ## 🔎 Realizar una búsqueda de un manga
 https://tumangaonlineapi-production.up.railway.app/api/v1/manga/library?title=naruto
 
