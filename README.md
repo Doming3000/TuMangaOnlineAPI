@@ -6,7 +6,7 @@
 - ~~Desplegar~~ *Fixed*
 - ~~Arreglar la búsqueda por nombre~~ *Fixed*
 - Revisar y testear la búsqueda por otros parámetros
-- Arreglar la obtención de imágenes de un manga
+- Arreglar la obtención de imágenes de un manga *Parcialmente arreglado, los enlaces no son accesibles*
 - Arreglar la búsqueda por generos
 - Arreglar los enlaces a los capitulos al obtener la información de un manga
 
@@ -29,7 +29,7 @@ go run App.go
 ## 🗞️ Obtener todos los mangas populares:
 https://tumangaonlineapi-production.up.railway.app/api/v1/manga/populares
 
-Ejemplo de respuesta (limitado a 2 para facilitar la lectura):
+Ejemplo de respuesta (limitado a 2 resultados para facilitar la lectura):
 ```json
 {
   "statusCode": 200,
@@ -54,10 +54,10 @@ Ejemplo de respuesta (limitado a 2 para facilitar la lectura):
 }
 ```
 
-## 📋 Obtener la informacion de un manga:
+## 📋 Obtener la información de un manga:
 https://tumangaonlineapi-production.up.railway.app/api/v1/manga/info?mangaUrl=https://lectortmo.com/library/manga/23741/dr-stone
 
-Ejemplo de respuesta (capitulos limitados para facilitar la lectura):
+Ejemplo de respuesta (limitado a 3 capítulos para facilitar la lectura):
 ```json
 {
   "statusCode": 200,
@@ -92,7 +92,7 @@ Ejemplo de respuesta (capitulos limitados para facilitar la lectura):
   }
 }
 ```
-## 🔎 Realizar una busqueda de un manga
+## 🔎 Realizar una búsqueda de un manga
 https://tumangaonlineapi-production.up.railway.app/api/v1/manga/library?title=naruto
 
 ### Listado de parametros 
@@ -141,3 +141,21 @@ Ejemplo de respuesta (limitado a 3 resultados para facilitar la lectura):
     }
   ]
 }
+```
+## 📷 Obtener las imágenes de un capitulo
+https://tumangaonlineapi-production.up.railway.app/api/v1/get-manga?urlPage=https://zonatmo.com/viewer/b4ef2ec44b416149ceb339a214b6f9d1/paginated
+  
+- ⚠️ **Aviso**: Por limitaciones del sitio, estos enlaces no son directamente accesibles, se está trabajando en una solución a este inconveniente.
+
+Ejemplo de respuesta:
+```json
+{
+  "statusCode": 200,
+  "data": [
+    "https://imgtmo.com/uploads/20250410/b4ef2ec44b416149ceb339a214b6f9d1/331e9b0f.webp",
+    "https://imgtmo.com/uploads/20250410/b4ef2ec44b416149ceb339a214b6f9d1/1f05ef82.webp",
+    "https://imgtmo.com/uploads/20250410/b4ef2ec44b416149ceb339a214b6f9d1/f60548be.webp",
+    "https://imgtmo.com/uploads/20250410/b4ef2ec44b416149ceb339a214b6f9d1/d3f175cb.webp"
+  ]
+}
+```
