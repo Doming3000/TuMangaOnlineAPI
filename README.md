@@ -8,7 +8,7 @@
 - Revisar y testear la búsqueda por otros parámetros
 - Arreglar la obtención de imágenes de un manga *Parcialmente arreglado, los enlaces no son accesibles*
 - Arreglar la búsqueda por generos
-- Arreglar los enlaces a los capitulos al obtener la información de un manga
+- ~~Arreglar los enlaces a los capitulos al obtener la información de un manga~~ *Arreglado mediante consulta alternativa*
 
 ## **:package: Principales herramientas usadas**
 
